@@ -141,21 +141,7 @@
   cursor.append(huevo);
   document.body.append(cursor);
   const salida = document.querySelector(".hero .huevo-logo");
-  const lugar = document.querySelector(".nido .lugar");
-  const sombra = document.querySelector(".nido .sombra");
-  let ultimo = scrollY, giro = 0, quieto = 0, boca = 0, nacer = 0, arrastrando = false;
-  // A: lugar en la apertura (pantalla, con scroll 0) · B: nido (documento)
-  // S1: scroll en que aterriza · S2: scroll en que deja el nido
-  let A, B, S1, S2;
-  const medirViaje = () => {
-    if (!salida || !lugar) return;
-    const hp = clamp(scrollY / innerHeight);
-    const s = salida.getBoundingClientRect(), l = lugar.getBoundingClientRect();
-    A = { x: s.left, y: s.top + scrollY + hp * 90, w: s.width };   // descuenta el corrimiento del título
-    B = { x: l.left, y: l.top + scrollY, w: l.width };
-    S1 = Math.max(1, B.y + l.height - innerHeight * 0.8);
-    S2 = Math.max(S1 + 1, B.y - innerHeight * 0.22);
-  };
+  let ultimo = scrollY, giro = 0, quieto = 0, boca = 0, arrastrando = false;
 
   cursor.addEventListener("pointerdown", (e) => {
     if (!cursor.classList.contains("anclado")) return;
@@ -177,50 +163,38 @@
     const vel = scrollY - ultimo; ultimo = scrollY;
     quieto = Math.abs(vel) < 0.5 ? quieto + 1 : 0;
 
-    const chico = innerWidth < 700 ? 30 : 40;
-    const pr = pista.getBoundingClientRect();
-    const cx = pr.left + pr.width / 2 - chico / 2;
-    const cy = pr.top + prog * (pr.height - chico * 1.2);
-    let x = cx, y = cy, w = chico, crack, dock = 1, enNido = false, balanceo = 0;
-
-    if (salida && A) {
-      // 1) Cae desde la apertura hasta el nido, meciéndose y rajándose
-      // 2) Aterriza, rebota y nace el pico
-      // 3) Al seguir bajando salta del nido, se achica y se vuelve el cursor
-      const t = clamp(scrollY / S1);
-      dock = suave(clamp((scrollY - S2) / (H * 0.4)));
-      enNido = t >= 1 && dock === 0;
-      crack = clamp((t - 0.15) / 0.75);
-      nacer = clamp(nacer + (t >= 1 ? 0.016 : -0.06));
-      const yA = A.y, yB = B.y - S1;
-      if (t < 1) {
-        x = A.x + (B.x - A.x) * suave(t) + Math.sin(t * Math.PI * 2) * Math.min(70, innerWidth * 0.09) * (1 - t);
-        y = yA + (yB - yA) * t * t;
-        w = mix(A.w, B.w, suave(t));
-        balanceo = Math.sin(t * Math.PI * 3) * 16 * (1 - t);
-      } else {
-        const nx = B.x, ny = B.y - scrollY;
-        x = mix(nx, cx, dock) - Math.sin(dock * Math.PI) * 70;   // salta en arco hacia la pista
-        y = mix(ny, cy, dock) - Math.sin(dock * Math.PI) * 50;
-        w = mix(B.w, chico, dock);
-      }
-      sombra?.style.setProperty("--s", (t ** 4 * (1 - dock)).toFixed(3));
+    // Fases: en la portada se rompe al salir de la apertura; en el manual, a medida que se lee
+    let crack, open, beak, dock;
+    if (salida) {
+      const hp = clamp(scrollY / (H * 0.95));
+      crack = clamp(hp / 0.3); open = clamp((hp - 0.26) / 0.2); beak = clamp((hp - 0.38) / 0.18);
+      dock = suave(clamp((hp - 0.5) / 0.5));
     } else {
-      crack = clamp(prog / 0.75);
-      nacer = clamp((prog - 0.78) / 0.2);
+      crack = clamp(prog / 0.75); open = clamp((prog - 0.78) / 0.1); beak = clamp((prog - 0.86) / 0.1); dock = 1;
     }
-    const open = clamp(nacer * 1.7), beak = clamp((nacer - 0.4) / 0.6);
     // Cuando el pico está afuera y la página se queda quieta, pía
     const piar = beak > 0.95 && quieto > 40 && Math.sin(ahora / 70) > 0.2 && (ahora % 2600) < 700;
     boca += ((piar ? 1 : 0) - boca) * 0.35;
     huevo.estado(crack, open, beak, boca);
 
+    // Posición: interpola entre el lugar en la apertura y la pista
+    const chico = innerWidth < 700 ? 30 : 40;
+    const pr = pista.getBoundingClientRect();
+    const cx = pr.left + pr.width / 2 - chico / 2;
+    const cy = pr.top + prog * (pr.height - chico * 1.2);
+    let x = cx, y = cy, w = chico;
+    if (salida && dock < 1) {
+      const s = salida.getBoundingClientRect();
+      const sy = s.top + scrollY - scrollY * 0.3;                // baja con la página, pero más lento
+      x = mix(s.left, cx, dock) - Math.sin(dock * Math.PI) * 60;   // describe un arco
+      y = mix(sy, cy, dock);
+      w = mix(s.width, chico, dock);
+    }
     // Se inclina con la velocidad y tiembla mientras se raja
     giro += (clamp(vel * 1.4, -32, 32) - giro) * 0.12;
-    const temblor = crack > 0 && crack < 1 ? Math.sin(ahora / 28) * 2.5 : 0;
+    const temblor = crack > 0 && crack < 1 ? Math.sin(ahora / 28) * 2.5 * (1 - dock) : 0;
     cursor.style.width = w + "px";
-    cursor.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${(enNido ? 0 : giro) + temblor + balanceo}deg)`;
-    cursor.classList.toggle("en-nido", enNido);
+    cursor.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${giro + temblor}deg)`;
     cursor.classList.toggle("anclado", dock > 0.98);
     pista.classList.toggle("visible", dock > 0.6);
     pista.style.setProperty("--prog", prog);
@@ -237,7 +211,7 @@
     requestAnimationFrame(cuadro);
   };
 
-  const recalcular = () => { ubicarMarcas(); motor(); medirViaje(); };
+  const recalcular = () => { ubicarMarcas(); motor(); };
   addEventListener("resize", recalcular);
   addEventListener("load", recalcular);
   document.fonts?.ready.then(recalcular);
