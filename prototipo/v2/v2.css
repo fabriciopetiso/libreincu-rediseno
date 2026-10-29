@@ -1,0 +1,100 @@
+/* LibreIncu v2 — se carga después de estilo.css y agrega el movimiento continuo */
+
+/* El huevo reemplaza a la barra de scroll */
+html { scrollbar-width: none; scroll-behavior: auto; }
+html::-webkit-scrollbar { display: none; }
+
+/* ---------- Huevo vectorial ---------- */
+.huevo-svg svg { display: block; width: 100%; height: auto; overflow: visible; }
+.huevo-svg .nombre { font: 500 27px var(--serif); letter-spacing: -.5px; fill: var(--tinta); }
+.huevo-svg .raja { stroke: #2B2118; stroke-width: 2.1; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.huevo-svg .raja.luz { stroke: #FFFFFF; stroke-width: 1.3; opacity: .9; }
+.huevo-svg .trozo { transform-box: fill-box; transform-origin: center; }
+.huevo-svg .hueco { opacity: 0; }
+
+/* ---------- Cursor-huevo y pista ---------- */
+.cursor-huevo { position: fixed; top: 0; left: 0; z-index: 60; pointer-events: none; will-change: transform, width; filter: drop-shadow(0 16px 22px rgba(60, 20, 0, .22)); transform-origin: 50% 60%; }
+.cursor-huevo.anclado { pointer-events: auto; cursor: grab; touch-action: none; filter: drop-shadow(0 4px 8px rgba(60, 20, 0, .28)); }
+.cursor-huevo.agarrado { cursor: grabbing; }
+.cursor-huevo.anclado .nombre { display: none; }
+.pista { position: fixed; z-index: 55; right: 30px; top: calc(var(--header-h) + 28px); bottom: 28px; width: 2px; background: var(--line); border-radius: 2px; opacity: 0; transition: opacity .5s; cursor: pointer; }
+.pista::after { content: ""; position: absolute; inset: 0 -14px; }
+.pista.visible { opacity: 1; }
+.pista .relleno { position: absolute; left: 0; right: 0; top: 0; height: calc(var(--prog, 0) * 100%); background: var(--accent); border-radius: 2px; }
+.marca-cap { position: absolute; left: 50%; z-index: 1; width: 10px; height: 10px; margin: -5px 0 0 -5px; padding: 0; border-radius: 50%; border: 2px solid var(--line); background: var(--bg); cursor: pointer; transition: background .3s, border-color .3s, transform .3s; }
+.marca-cap.pasado { background: var(--accent); border-color: var(--accent); }
+.marca-cap.actual { transform: scale(1.4); }
+.marca-cap span { position: absolute; right: 22px; top: 50%; translate: 0 -50%; white-space: nowrap; font: 500 12px var(--sans); color: var(--text); background: var(--bg); border: 1px solid var(--line); padding: 4px 10px; border-radius: 99px; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.marca-cap:hover span { opacity: 1; }
+.cursor-etiqueta { position: fixed; top: 0; right: 74px; z-index: 56; font: 600 11px var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--on-accent); background: var(--accent); padding: 6px 12px; border-radius: 99px; opacity: 0; transition: opacity .35s; pointer-events: none; white-space: nowrap; }
+.cursor-etiqueta.visible { opacity: 1; }
+@media (max-width: 700px) {
+  .pista { right: 18px; }
+  .cursor-etiqueta { right: 52px; font-size: 10px; }
+  .marca-cap span { display: none; }
+}
+
+/* ---------- Apertura ---------- */
+.hero { background: color-mix(in srgb, var(--accent), var(--bg) calc(var(--hp, 0) * 55%)); }
+.hero .contenido { transform: translateY(calc(var(--hp, 0) * -90px)); opacity: calc(1 - var(--hp, 0) * 1.3); }
+.hero h1 { letter-spacing: calc(-0.03em + var(--hp, 0) * .08em); }
+.hero .huevo-logo { margin-top: 36px; }
+.bajar { opacity: calc(.6 - var(--hp, 0) * 2); }
+
+/* ---------- Movimiento continuo ---------- */
+/* Sube y aparece mientras entra */
+[data-m~="sube"] { --e: clamp(0, calc(var(--v, 0) * 3.2 - var(--k, 0) * .35), 1); transform: translateY(calc((1 - var(--e)) * 80px)); opacity: var(--e); }
+/* Se agranda al acercarse al centro */
+[data-m~="escala"] { transform: scale(calc(.84 + .16 * clamp(0, var(--v, 0) * 2.4, 1))); transform-origin: 50% 80%; }
+/* Foto: se abre la ventana y la imagen se desplaza más lento (parallax) */
+[data-m~="foto"] { clip-path: inset(calc((1 - clamp(0, var(--v, 0) * 2.4, 1)) * 16%) round var(--radius)); }
+[data-m~="foto"] img { transition: none; transform: translateY(calc((var(--v, 0) - .5) * -16%)) scale(1.2); }
+/* Palabras que se encienden al leer */
+[data-m~="palabras"] .w { opacity: clamp(.14, calc(var(--q, 0) * (var(--n) + 4) - var(--i)), 1); transition: opacity .2s linear; }
+/* Línea del rótulo que crece */
+[data-m] .kicker::before, .kicker[data-m]::before { width: calc(8px + 40px * clamp(0, var(--v, 1) * 2.4, 1)); }
+/* Pasos de las dependencias: brillan en el centro */
+[data-m~="paso"] { opacity: calc(.18 + .82 * var(--c, 0)); transform: translateX(calc((1 - var(--c, 0)) * -28px)); transition: none; }
+[data-m~="paso"] h3 { color: color-mix(in srgb, var(--accent) calc(var(--c, 0) * 100%), var(--text)); }
+[data-m~="paso"] .barra { height: 3px; width: 100%; max-width: 46ch; background: var(--line); border-radius: 3px; margin-top: 20px; overflow: hidden; }
+[data-m~="paso"] .barra::before { content: ""; display: block; height: 100%; width: calc(var(--q, 0) * 100%); background: var(--accent); }
+.scrolly .medios { transform: scale(calc(.94 + .06 * var(--c, 1))); }
+.scrolly .medios .num { font-variant-numeric: tabular-nums; }
+/* Tarjetas de documentación con desfase */
+.grupo[data-m] a { transform: translateX(calc((1 - clamp(0, var(--v, 0) * 3 - var(--k, 0) * .3, 1)) * 30px)); }
+
+@media (prefers-reduced-motion: reduce) {
+  [data-m], [data-m] img, .hero .contenido, .scrolly .medios { transform: none !important; clip-path: none !important; opacity: 1 !important; }
+  [data-m~="palabras"] .w { opacity: 1; }
+}
+
+/* ---------- Hoy: video de actualización con hitos sincronizados ---------- */
+.hoy { background: var(--tinta); color: #EFEDE4; padding: clamp(80px, 14vh, 160px) 0; }
+.hoy-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(32px, 6vw, 96px); align-items: start; }
+.hoy-video { position: sticky; top: calc(var(--header-h) + 24px); justify-self: center; width: min(100%, calc((100svh - var(--header-h) - 64px) * 9 / 16), 420px); aspect-ratio: 9 / 16; border-radius: 28px; overflow: hidden; background: #000; box-shadow: 0 30px 80px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .08); }
+.hoy-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hoy-controles { position: absolute; left: 14px; right: 14px; bottom: 22px; display: flex; gap: 8px; justify-content: space-between; }
+.hoy-controles button { font: 600 13px var(--sans); color: #fff; background: rgba(0, 0, 0, .45); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, .25); border-radius: 99px; padding: 8px 14px; cursor: pointer; }
+.hoy-controles .hoy-sonido { background: var(--accent); border-color: transparent; color: var(--on-accent); }
+.hoy-controles .hoy-sonido[aria-pressed="true"] { background: rgba(0, 0, 0, .45); color: #fff; border-color: rgba(255, 255, 255, .25); }
+.hoy-barra { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255, 255, 255, .15); }
+.hoy-barra span { display: block; height: 100%; width: 0; background: var(--yema); }
+.hoy .kicker { color: #C9D6C2; }
+.hoy h2 { font-size: clamp(40px, 5.4vw, 72px); color: #FBF8F1; margin-bottom: 40px; }
+.hitos { list-style: none; padding: 0; margin: 0; counter-reset: h; }
+.hitos li { position: relative; padding: 18px 0 18px 64px; border-top: 1px solid rgba(255, 255, 255, .12); cursor: pointer; font: 400 clamp(19px, 1.9vw, 24px)/1.3 var(--serif); color: rgba(239, 237, 228, .38); transition: color .5s, transform .5s; }
+.hitos li::before { counter-increment: h; content: counter(h, decimal-leading-zero); position: absolute; left: 0; top: 22px; font: 500 13px var(--mono); color: rgba(239, 237, 228, .4); transition: color .5s; }
+.hitos li::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 2px; width: 0; background: var(--yema); transition: width .6s; }
+.hitos li b { font-weight: 600; }
+.hitos li small { display: block; font: 400 14px/1.4 var(--sans); margin-top: 4px; }
+.hitos li.pasado { color: rgba(239, 237, 228, .8); }
+.hitos li.actual { color: #FFF; transform: translateX(10px); }
+.hitos li.actual b { color: var(--yema); }
+.hitos li.actual::before { color: var(--yema); }
+.hitos li.actual::after { width: 100%; }
+.hitos li:hover { color: #FFF; }
+@media (max-width: 860px) {
+  .hoy-grid { grid-template-columns: 1fr; }
+  .hoy-video { position: relative; top: 0; width: min(100%, 360px); }
+  .hitos li { padding-left: 48px; }
+}

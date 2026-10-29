@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual básico — LibreIncu</title>
+<link rel="icon" href="../assets/favicon-yema.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,400&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../estilo.css">
+<link rel="stylesheet" href="v2.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="index.html">
+      <img src="../assets/huevo-yema.png" alt="">
+      <span><strong>LibreIncu</strong><small>AlterMundi · CTO</small></span>
+    </a>
+    <button class="menu-btn" aria-label="Abrir menú">Menú</button>
+    <nav>
+      <a href="manual.html" aria-current="page">Incubar</a>
+      <a href="index.html#documentacion">App LibrePollo</a>
+      <a href="index.html#documentacion">Técnico</a>
+      <a href="index.html#videos">Videos</a>
+      <a href="index.html#documentacion">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-hero">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Incubar</span>
+      <h1>Manual de Usuario - Incubadora LibrePollo</h1>
+      <p class="bajada" data-m="palabras">Innovación tecnológica y productiva en la cadena avícola para la agricultura familiar, campesina e indígena.</p>
+    </div>
+    <figure class="foto" data-m="foto" style="margin:0"><img src="../assets/incubadoras.jpg" alt="Incubadoras LibreIncu"></figure>
+  </div>
+</div>
+
+<div class="doc">
+  <aside class="lateral">
+    <h4>Incubar</h4>
+    <a href="manual.html" aria-current="page">Manual básico de incubadoras</a>
+    <a href="#">Huevos Fértiles e Incubación</a>
+    <a href="#">Preguntas para Buenas Prácticas</a>
+    <h4>App</h4>
+    <a href="#">LibrePollo - Aplicación</a>
+    <a href="#">Solución de problemas</a>
+    <h4>Técnico</h4>
+    <a href="#">Especificaciones técnicas</a>
+    <a href="#">Ecosistema informático</a>
+    <h4>Comunidad</h4>
+    <a href="#">Videos, prensa y difusión</a>
+    <a href="#">Contacto</a>
+  </aside>
+
+  <article class="prosa">
+    <h2 id="introduccion" data-capitulo="Introducción">Introducción</h2>
+    <p>LibreIncu es una incubadora de huevos desarrollada por AlterMundi y CTO. Este proyecto,  integra tecnología de monitoreo y control para optimizar la incubación avícola.</p>
+
+    <h2 id="componentes" data-capitulo="Componentes Principales">Componentes Principales</h2>
+    <div class="sistemas">
+      <div class="sistema">
+        <span class="n">01</span>
+        <h3>Sistema de Control de Temperatura</h3>
+        <ul>
+          <li><strong>Sensor BME280</strong>: Mide temperatura, humedad y presión con  mucha precisión (<span class="dato">±0.5°C</span>). Estos datos son los que visualizamos en la app y en grafana</li>
+          <li><strong>Resistencia Calefactora</strong>: Está fijada bajo la bandeja de humedad. Tiene aprox <span class="dato">~200W</span>, se prende y apaga para lograr el promedio de temperatura que indicamos en la app. De fábrica está calibrado para huevos de pollo: <span class="dato">37,8º</span></li>
+          <li><strong>Ventilador</strong>: Asegura que el calor se distribuya de manera pareja en toda la cámara y fuerza la entrada de aire con oxígeno para el desarrollo de los pollitos</li>
+        </ul>
+      </div>
+      <div class="sistema">
+        <span class="n">02</span>
+        <h3>Sistema de Humidificación</h3>
+        <ul>
+          <li><strong>Recipiente de Agua</strong>:  Se alimenta de la red doméstica y tiene un flotante para mantener el nivel de agua que la bomba necesita. Es necesario asegurar la correcta posicion del reservorio, la bomba y el flotante además de una conexión de agua segura y sin perdidas, similar a la de un lavaropas (canilla abierta).</li>
+          <li><strong>Humidificador por microaspersión</strong>: Dentro de la incubadora un microaspersor genera microgotas que en relación con la bandeja y el calor de la resistencia, mantiene el ambiente húmedo.</li>
+        </ul>
+      </div>
+      <div class="sistema">
+        <span class="n">03</span>
+        <h3>Sistema de Rotación</h3>
+        <ul>
+          <li><strong>Motor de Rotación</strong>: Se encuentra en la parte superior y hace subir por fuerza a través de una cinta que se une a las bandejas. Baja soltando la cinta por un contrapeso de plomo ubicado debajo de la última bandeja.</li>
+          <li><strong>Sensores Reed</strong>: Informan al controlador cuando las bandejas de rotación se aproximan al punto máximo superior e inferior"</li>
+          <li><strong>Bandeja Porta Huevos</strong>:  Es desmontable para facilitar su limpieza.</li>
+        </ul>
+      </div>
+      <div class="sistema">
+        <span class="n">04</span>
+        <h3>Sistema de Control</h3>
+        <ul>
+          <li><strong>Placa de Control</strong>: Posee un circuito empoderado por un microcontrolador ESP32-s Donde se conectan los componentes como motores y resistencia.</li>
+          <li><strong>App LibrePollo</strong>: A través de la App los usuarios pueden acceder en cualquier momento al estado de la incubadora. Ya sea para conocer la temperatura o el nivel de humedad actual dentro de la misma como para modificar estos valores y monitorearlos de forma histórica. Además, la aplicación cuenta con un sistema de notificaciones y una pantalla en la cual agregar información sobre la carga de bandejas, permitiendo que el usuario pueda tener todos los datos de importancia sobre la incubadora.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 id="empezar" data-capitulo="Cómo empezar a usar la incubadora">Cómo empezar a usar la incubadora</h2>
+    <h3>Ubicación:</h3>
+    <ul>
+      <li>Lugar ventilado pero sin corrientes de aire</li>
+      <li>Con acceso a conexión de agua</li>
+      <li>Cerca de un tomacorriente</li>
+      <li>En lo posible con señal WiFi y al alcance del celular</li>
+    </ul>
+    <h3>Primer encendido:</h3>
+    <ol class="pasos">
+      <li>Conectá y encendé la incubadora</li>
+      <li>Esperá que aparezca la red WiFi <span class="dato">"incu-"</span>, luego del guión cada Incubadora tiene un número único de identificación</li>
+      <li>Conectate desde tu celular con la contraseña: <span class="dato">12345678</span></li>
+      <li>Configurá los parámetros básicos</li>
+    </ol>
+
+    <h2 id="mantenimiento" data-capitulo="Mantenimiento Básico">Mantenimiento Básico</h2>
+    <ol>
+      <li><strong>Limpieza Regular</strong>
+        <ul><li>Limpiá el interior después de cada ciclo</li><li>Mantené el recipiente de agua limpio y conectado a la red</li><li>Revisá que las bandejas estén siempre limpias</li></ul></li>
+      <li><strong>Verificaciones Periódicas</strong>
+        <ul><li>Nivel de agua en el recipiente</li><li>Funcionamiento de la rotación</li><li>Lecturas de temperatura y humedad</li></ul></li>
+      <li>Mantenimiento del humidificador: Desenrosca el pico de aspersión con cuidado, limpia con suavidad la boquilla para retirar suciedades.</li>
+    </ol>
+    <h3>Apagado</h3>
+    <p>Cuando apaques la incubadora asegurate de vaciar el circuito de agua y lubricar la bomba para preservarla del óxido.</p>
+
+    <h2 id="problemas" data-capitulo="Solución de Problemas">Solución de Problemas</h2>
+    <details open><summary>La temperatura no sube</summary>
+      <ul><li>Verificá que la resistencia esté funcionando</li><li>Revisá las conexiones</li><li>Controlá que el ventilador distribuya el aire</li></ul></details>
+    <details><summary>La humedad está baja</summary>
+      <ul><li>Revisá el nivel de agua en el reservorio</li><li>Verificá que la bomba funcione</li><li>Controlá que no haya suciedad en el pico microaspersor</li></ul></details>
+    <details><summary>La rotación no funciona</summary>
+      <ul><li>Revisá  la posición de la bandeja y los sensores Reed</li><li>Verificá las conexiones del motor</li><li>Controlá que las partes (cinta polea y motor) estén bien asociadas.</li></ul></details>
+
+    <div class="aviso">
+      <h2 id="precauciones" data-capitulo="Precauciones importantes">Precauciones importantes</h2>
+      <ul>
+        <li>Tratá de no abrirla mientras está funcionando si no es para algún mantenimiento.</li>
+        <li>Mantené conexiones de agua sin pérdidas y el reservorio limpio.</li>
+        <li>Protegé la incubadora de temperaturas extremas</li>
+        <li>No tapes las ventilaciones</li>
+      </ul>
+    </div>
+
+    <h2 id="recorda" data-capitulo="Recordá Siempre">Recordá Siempre</h2>
+    <ul>
+      <li>La paciencia es clave en la incubación</li>
+      <li>Lee con cuidado las Buenas Prácticas de manejo de huevos fértiles.</li>
+      <li>La constancia en el control hace la diferencia</li>
+      <li>Estás participando en un proyecto de tecnología libre y soberana</li>
+    </ul>
+    <p class="cierre">¡A incubar se ha dicho! 💚 🐣</p>
+
+    <nav class="pager" data-m="sube">
+      <a href="index.html"><small>← Anterior</small><strong>Inicio</strong></a>
+      <a href="#"><small>Siguiente →</small><strong>Huevos Fértiles e Incubación</strong></a>
+    </nav>
+  </article>
+
+  <nav class="toc" aria-label="En esta página">
+    <h4>En esta página</h4>
+    <a href="#introduccion">Introducción</a>
+    <a href="#componentes">Componentes</a>
+    <a href="#empezar">Cómo empezar</a>
+    <a href="#mantenimiento">Mantenimiento</a>
+    <a href="#problemas">Solución de problemas</a>
+    <a href="#precauciones">Precauciones</a>
+    <a href="#recorda">Recordá siempre</a>
+  </nav>
+</div>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="marca-pie"><img src="../assets/huevo-yema.png" alt=""><strong>LibreIncu</strong></div>
+    <div class="socios">
+      <span>Desarrollado por</span>
+      <img src="../assets/altermundi.png" alt="AlterMundi">
+      <img src="../assets/cto-sello.png" alt="Comunidad, Trabajo y Organización (CTO) Traslasierra">
+    </div>
+    <p><a href="https://github.com/AlterMundi-MonitoreoyControl/website">GitHub</a> · Córdoba, Argentina</p>
+    <p class="legal">This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+  </div>
+</footer>
+
+<script src="v2.js"></script>
+</body>
+</html>
