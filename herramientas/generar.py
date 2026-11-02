@@ -21,16 +21,60 @@ IMAGENES = RAIZ / "prototipo" / "assets" / "docs"
 
 # (archivo de salida, título del menú, grupo, Markdown de origen o None si la página es a mano, foto de cabecera)
 PAGINAS = [
-    ("manual.html", "Manual básico de incubadoras", "Incubar", None, None),
-    ("huevos.html", "Huevos Fértiles e Incubación", "Incubar", "Huevos Fértiles e Incubación.md", "huevos.jpg"),
-    ("buenas-practicas.html", "Preguntas para Buenas Prácticas", "Incubar", "Preguntas para las Buenas Prácticas de Incubación.md", "pollitos-negros.jpg"),
+    ("especificaciones.html", "Especificaciones técnicas", "La Incubadora", "Especificaciones_técnicas.md", "incubadoras.jpg"),
+    ("manual.html", "Manual básico de incubadoras", "La Incubadora", None, None),
+    ("ecosistema.html", "Ecosistema informático", "La Incubadora", "Ecosistema informático para la agricultura familiar.md", None),
+    ("huevos.html", "Huevos Fértiles e Incubación", "BPAs de Incubación", "Huevos Fértiles e Incubación.md", "huevos.jpg"),
+    ("buenas-practicas.html", "Preguntas para Buenas Prácticas", "BPAs de Incubación", "Preguntas para las Buenas Prácticas de Incubación.md", "pollitos-negros.jpg"),
     ("app.html", "LibrePollo - Aplicación", "App", "LibrePollo - Aplicación.md", "incu-celu.jpg"),
     ("problemas.html", "Solución de problemas", "App", "solucion de problemas.md", "incubadora-carga.jpg"),
-    ("especificaciones.html", "Especificaciones técnicas", "Técnico", "Especificaciones_técnicas.md", "incubadoras.jpg"),
-    ("ecosistema.html", "Ecosistema informático", "Técnico", "Ecosistema informático para la agricultura familiar.md", None),
     ("prensa.html", "Videos, prensa y difusión", "Comunidad", "Videos_prensa_y_difusión.md", "entrega.jpg"),
     ("contacto.html", "Contacto", "Comunidad", "Contacto.md", "gallinas.jpg"),
 ]
+
+# Video en loop arriba de todo de la página (sin sonido)
+VIDEOS = {"especificaciones.html": ("incubadora-recorrido", ""),
+          "app.html": ("app-librepollo", " vertical")}
+
+# Resumen corto arriba de todo (fuera del texto original, no lo controla verificar_textos)
+FICHAS = {"especificaciones.html": """<section class="ficha">
+  <div class="wrap">
+    <p class="ficha-lead">LibreIncu es una incubadora para 150 huevos que controla sola la temperatura, la humedad y la rotación de los huevos. Se maneja desde el celular y está hecha con hardware y software libres.</p>
+    <dl class="ficha-datos">
+      <div><dt>Capacidad</dt><dd>150 huevos</dd><small>3 bandejas de 50 huevos y una nacedora de 50 huevos</small></div>
+      <div><dt>Tamaño</dt><dd>100 × 50 × 50 cm</dd><small>alto, ancho y profundidad</small></div>
+      <div><dt>Temperatura</dt><dd>37,8 °C</dd><small>resistencia de 200 W y ventilador</small></div>
+      <div><dt>Humedad</dt><dd>Automática</dd><small>microaspersor con carga de agua</small></div>
+      <div><dt>Rotación</dt><dd>Automática</dd><small>motor y cinta, programable</small></div>
+      <div><dt>Control</dt><dd>ESP32 + WiFi</dd><small>app LibrePollo y datos en Grafana</small></div>
+      <div><dt>Eclosión</dt><dd>86 %</dd><small>en las pruebas realizadas</small></div>
+      <div><dt>Repuestos</dt><dd>Del mercado</dd><small>fáciles de conseguir y reemplazar</small></div>
+    </dl>
+    <div class="ficha-sigue">
+      <a href="manual.html"><small>Cómo se usa</small><strong>Manual básico de incubadoras</strong></a>
+      <a href="ecosistema.html"><small>Cómo se conecta</small><strong>Ecosistema informático</strong></a>
+    </div>
+  </div>
+</section>
+"""}
+
+# Cabecera con título propio y logo en lugar de video
+PORTADAS = {"huevos.html": {"titulo": "Manejo productivo", "bajada": "Huevos fértiles e incubación",
+                            "logo": ("cto-sello.png", "Comunidad, Trabajo y Organización (CTO) Traslasierra")}}
+
+# Páginas cuyo contenido se reemplaza por uno propio (no sale del Markdown original)
+PROPIAS = {"contacto.html": """<div class="contacto">
+  <a class="contacto-item" href="mailto:libreincu@gmail.com">
+    <span class="contacto-tipo">Mail</span>
+    <strong>libreincu@gmail.com</strong>
+  </a>
+  <a class="contacto-item" href="https://wa.me/5493517350189" target="_blank" rel="noopener">
+    <span class="contacto-tipo">WhatsApp</span>
+    <strong>3517350189</strong>
+    <small>Solo WhatsApp</small>
+  </a>
+</div>
+"""}
 
 YOUTUBE = re.compile(r"(?:youtube\.com/watch\?v=|youtu\.be/)([\w-]{11})")
 
@@ -78,6 +122,9 @@ def limpiar(texto, slug):
     # Separadores de emojis de Huevos Fértiles → corte de etapa
     texto = re.sub(r"^(?:🥚🐣🐥🐓\s*)+🥚🐣\s*$", "\n<hr class=\"etapa\">\n", texto, flags=re.M)
     texto = texto.replace(":hatching_chick:", "")
+    if slug == "huevos":
+        # La lámina de portada (título + logos) se reemplaza por la cabecera en texto
+        texto = texto.replace("![image](https://hackmd.io/_uploads/r15KgdSPJe.png)", "", 1)
     texto = re.sub(r"\*\*([^*\n]+?)\s+\*\*", r"**\1**", texto)   # negritas con espacio antes del cierre
     if slug == "buenas-practicas":
         # Los rótulos con 🐣 pasan a ser títulos (el texto queda igual)
@@ -217,6 +264,16 @@ def plantilla(archivo, nombre, grupo, titulo, cuerpo, capitulos, foto, previa, s
     palabras = len(re.sub(r"<[^>]+>", " ", cuerpo).split())
     meta = (f"{len(capitulos)} secciones · " if capitulos else "") + f"{max(1, round(palabras / 200))} min de lectura"
     ant = f'<a href="{previa[0]}"><small>← Anterior</small><strong>{previa[1]}</strong></a>' if previa else '<a href="index.html"><small>← Anterior</small><strong>Inicio</strong></a>'
+    portada = PORTADAS.get(archivo, {})
+    bajada = f'\n      <p class="bajada">{portada["bajada"]}</p>' if portada else ""
+    if portada:
+        logo, alt = portada["logo"]
+        medio = f'\n    <img class="doc-hero-logo" src="../assets/{logo}" alt="{alt}">'
+    else:
+        medio = ""
+    video, forma = VIDEOS.get(archivo, (None, ""))
+    video_html = (f'\n    <video class="doc-hero-video{forma}" src="../assets/{video}.mp4" poster="../assets/{video}.jpg" '
+                  f'autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>') if video else ""
     sig = f'<a href="{siguiente[0]}"><small>Siguiente →</small><strong>{siguiente[1]}</strong></a>' if siguiente else '<a href="index.html"><small>Volver →</small><strong>Inicio</strong></a>'
     return f"""<!doctype html>
 <html lang="es">
@@ -238,13 +295,13 @@ def plantilla(archivo, nombre, grupo, titulo, cuerpo, capitulos, foto, previa, s
   <div class="wrap">
     <div>
       <span class="kicker">{grupo}</span>
-      <h1>{titulo or nombre}</h1>
-      <p class="meta">{meta}</p>
-    </div>
+      <h1>{portada.get("titulo") or titulo or nombre}</h1>{bajada}
+{"" if archivo in PROPIAS else f'      <p class="meta">{meta}</p>'}
+    </div>{video_html}{medio}
   </div>
 </div>
 
-<div class="doc">
+{FICHAS.get(archivo, "")}<div class="doc">
   <aside class="lateral">
 {lateral}  </aside>
 
@@ -274,7 +331,7 @@ def marcar_cabecera(archivo, grupo):
 
 
 def grupo_enlace(grupo):
-    return {"Incubar": "manual.html", "App": "app.html", "Técnico": "especificaciones.html", "Comunidad": "contacto.html"}[grupo]
+    return {"La Incubadora": "especificaciones.html", "BPAs de Incubación": "huevos.html", "App": "app.html", "Comunidad": "contacto.html"}[grupo]
 
 
 CABECERA = """<header class="top">
@@ -285,11 +342,11 @@ CABECERA = """<header class="top">
     </a>
     <button class="menu-btn" aria-label="Abrir menú">Menú</button>
     <nav>
-      <a href="index.html#hoy">Hoy</a>
-      <a href="manual.html">Incubar</a>
+      <a href="especificaciones.html">La Incubadora</a>
       <a href="app.html">App LibrePollo</a>
-      <a href="especificaciones.html">Técnico</a>
+      <a href="index.html#hoy">Dónde estamos hoy</a>
       <a href="prensa.html">Videos</a>
+      <a href="huevos.html">BPAs de Incubación</a>
       <a href="contacto.html">Contacto</a>
     </nav>
   </div>
@@ -316,6 +373,8 @@ def main():
         slug = archivo[:-5]
         texto = limpiar((ORIGEN / origen).read_text(encoding="utf-8"), slug)
         titulo, cuerpo, capitulos = a_html(texto, slug)
+        if archivo in PROPIAS:
+            titulo, cuerpo, capitulos = None, PROPIAS[archivo], []
         previa = PAGINAS[i - 1][:2] if i > 0 else None
         siguiente = PAGINAS[i + 1][:2] if i + 1 < len(PAGINAS) else None
         (SALIDA / archivo).write_text(

@@ -277,3 +277,51 @@ blockquote.cita { margin: 32px 0; padding: 28px 32px; border-radius: 20px; backg
 .propuesta-kicker { display: block; font: 600 11px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: color-mix(in srgb, var(--tinta-2) calc(var(--l) * 100%), var(--muted)); margin-bottom: 8px; }
 .propuesta-titulo { display: block; font: italic 400 clamp(22px, 2.2vw, 28px)/1.1 var(--serif); color: color-mix(in srgb, var(--accent) calc(var(--l) * 100%), var(--muted)); margin-bottom: 8px; }
 .propuesta p { font-size: 17px; margin: 0; }
+
+/* La Incubadora: video en loop en la cabecera */
+.doc-hero-v2 .wrap:has(.doc-hero-video) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.doc-hero-video { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 24px; background: var(--surface); box-shadow: 0 24px 60px rgba(31, 51, 38, .22); }
+@media (max-width: 860px) { .doc-hero-v2 .wrap:has(.doc-hero-video) { grid-template-columns: 1fr; } }
+
+/* Pestañas del menú: que se note que se pueden tocar */
+.top nav { gap: 6px; }
+.top nav a { border: 1px solid color-mix(in srgb, var(--tinta) 25%, transparent); background: color-mix(in srgb, var(--bg) 60%, transparent); transition: background .2s, color .2s, border-color .2s; }
+.top nav a:hover, .top nav a:focus-visible { background: var(--tinta); border-color: var(--tinta); color: var(--on-accent); }
+.top nav a[aria-current] { background: var(--tinta); border-color: var(--tinta); color: var(--on-accent); }
+.top nav a:first-child:not([aria-current]) { border-color: var(--tinta); font-weight: 600; }
+.menu-btn { border-color: var(--tinta); background: color-mix(in srgb, var(--bg) 60%, transparent); }
+@media (max-width: 860px) { .top nav a { padding: 12px 16px; } }
+
+/* La Incubadora: lo básico de un vistazo, antes del detalle */
+.ficha { padding: clamp(48px, 8vh, 80px) 0 clamp(40px, 6vh, 64px); border-bottom: 1px solid var(--line); }
+.ficha-lead { font: 400 clamp(22px, 2.6vw, 32px)/1.3 var(--serif); max-width: 34ch; margin: 0 0 40px; }
+.ficha-datos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0; }
+.ficha-datos > div { background: var(--surface); border-radius: var(--radius); padding: 20px 20px 18px; display: flex; flex-direction: column; gap: 4px; }
+.ficha-datos dt { font: 600 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ficha-datos dd { margin: 6px 0 0; font: 500 clamp(22px, 2.2vw, 28px)/1.1 var(--serif); color: var(--tinta); }
+.ficha-datos small { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.ficha-sigue { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.ficha-sigue a { flex: 1 1 260px; display: flex; flex-direction: column; gap: 2px; padding: 16px 20px; border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; transition: border-color .2s, background .2s; }
+.ficha-sigue a:hover { border-color: var(--tinta); background: var(--surface); }
+.ficha-sigue small { font: 600 11px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.ficha-sigue strong { font-weight: 600; }
+.ficha-sigue strong::after { content: " →"; color: var(--muted); }
+@media (max-width: 900px) { .ficha-datos { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .ficha-datos > div { padding: 16px 14px; } .ficha-datos dd { font-size: 19px; } }
+.doc-hero-video.vertical { width: auto; max-width: 100%; height: min(72vh, 620px); aspect-ratio: 9 / 16; justify-self: center; }
+@media (max-width: 860px) { .doc-hero-video.vertical { height: min(70svh, 560px); } }
+
+/* Cabecera con logo (BPAs: Manejo productivo) */
+.doc-hero-v2 .wrap:has(.doc-hero-logo) { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+.doc-hero-v2 .bajada { font: italic 400 clamp(20px, 2.2vw, 26px)/1.3 var(--serif); color: var(--tinta-2); }
+.doc-hero-logo { width: clamp(120px, 16vw, 190px); height: auto; }
+@media (max-width: 560px) { .doc-hero-v2 .wrap:has(.doc-hero-logo) { grid-template-columns: 1fr; } .doc-hero-logo { width: 110px; order: -1; } }
+@media (min-width: 861px) and (max-width: 1060px) { .top .wrap { gap: 16px; } .top nav { gap: 4px; } .top nav a { padding: 7px 10px; font-size: 13px; } .top .marca small { display: none; } }
+
+/* Contacto: solo mail y WhatsApp */
+.contacto { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.contacto-item { display: flex; flex-direction: column; gap: 6px; padding: 28px 26px; border-radius: var(--radius); background: var(--surface); text-decoration: none; border: 1px solid transparent; transition: border-color .2s, transform .2s; }
+.contacto-item:hover { border-color: var(--tinta); transform: translateY(-2px); }
+.contacto-tipo { font: 600 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.contacto-item strong { font: 500 clamp(22px, 2.4vw, 28px)/1.2 var(--serif); color: var(--tinta); overflow-wrap: anywhere; }
+.contacto-item small { color: var(--muted); font-size: 14px; }

@@ -20,11 +20,11 @@
     </a>
     <button class="menu-btn" aria-label="Abrir menú">Menú</button>
     <nav>
-      <a href="index.html#hoy">Hoy</a>
-      <a href="manual.html">Incubar</a>
+      <a href="especificaciones.html" aria-current="page">La Incubadora</a>
       <a href="app.html">App LibrePollo</a>
-      <a href="especificaciones.html" aria-current="page">Técnico</a>
+      <a href="index.html#hoy">Dónde estamos hoy</a>
       <a href="prensa.html">Videos</a>
+      <a href="huevos.html">BPAs de Incubación</a>
       <a href="contacto.html">Contacto</a>
     </nav>
   </div>
@@ -33,25 +33,45 @@
 <div class="doc-hero doc-hero-v2">
   <div class="wrap">
     <div>
-      <span class="kicker">Técnico</span>
+      <span class="kicker">La Incubadora</span>
       <h1>Especificaciones técnicas</h1>
       <p class="meta">2 secciones · 2 min de lectura</p>
     </div>
+    <video class="doc-hero-video" src="../assets/incubadora-recorrido.mp4" poster="../assets/incubadora-recorrido.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
   </div>
 </div>
 
+<section class="ficha">
+  <div class="wrap">
+    <p class="ficha-lead">LibreIncu es una incubadora para 150 huevos que controla sola la temperatura, la humedad y la rotación de los huevos. Se maneja desde el celular y está hecha con hardware y software libres.</p>
+    <dl class="ficha-datos">
+      <div><dt>Capacidad</dt><dd>150 huevos</dd><small>3 bandejas de 50 huevos y una nacedora de 50 huevos</small></div>
+      <div><dt>Tamaño</dt><dd>100 × 50 × 50 cm</dd><small>alto, ancho y profundidad</small></div>
+      <div><dt>Temperatura</dt><dd>37,8 °C</dd><small>resistencia de 200 W y ventilador</small></div>
+      <div><dt>Humedad</dt><dd>Automática</dd><small>microaspersor con carga de agua</small></div>
+      <div><dt>Rotación</dt><dd>Automática</dd><small>motor y cinta, programable</small></div>
+      <div><dt>Control</dt><dd>ESP32 + WiFi</dd><small>app LibrePollo y datos en Grafana</small></div>
+      <div><dt>Eclosión</dt><dd>86 %</dd><small>en las pruebas realizadas</small></div>
+      <div><dt>Repuestos</dt><dd>Del mercado</dd><small>fáciles de conseguir y reemplazar</small></div>
+    </dl>
+    <div class="ficha-sigue">
+      <a href="manual.html"><small>Cómo se usa</small><strong>Manual básico de incubadoras</strong></a>
+      <a href="ecosistema.html"><small>Cómo se conecta</small><strong>Ecosistema informático</strong></a>
+    </div>
+  </div>
+</section>
 <div class="doc">
   <aside class="lateral">
-    <h4>Incubar</h4>
+    <h4>La Incubadora</h4>
+    <a href="especificaciones.html" aria-current="page">Especificaciones técnicas</a>
     <a href="manual.html">Manual básico de incubadoras</a>
+    <a href="ecosistema.html">Ecosistema informático</a>
+    <h4>BPAs de Incubación</h4>
     <a href="huevos.html">Huevos Fértiles e Incubación</a>
     <a href="buenas-practicas.html">Preguntas para Buenas Prácticas</a>
     <h4>App</h4>
     <a href="app.html">LibrePollo - Aplicación</a>
     <a href="problemas.html">Solución de problemas</a>
-    <h4>Técnico</h4>
-    <a href="especificaciones.html" aria-current="page">Especificaciones técnicas</a>
-    <a href="ecosistema.html">Ecosistema informático</a>
     <h4>Comunidad</h4>
     <a href="prensa.html">Videos, prensa y difusión</a>
     <a href="contacto.html">Contacto</a>
@@ -94,8 +114,8 @@
 <p>El firmware de la incubadora, alojado en la carpeta /src/embedded del <a href="https://github.com/AlterMundi-MonitoreoyControl/Proyecto-Incubadora/tree/main/src/embedded#readme">repositorio</a> del proyecto, es el componente de software que corre directamente en el microcontrolador del sistema de control. Está desarrollado para gestionar de forma autónoma el funcionamiento de la incubadora, manteniendo condiciones ambientales óptimas para el desarrollo de los embriones.</p>
 <p>El firmware utiliza nodemcu y está escrito en lua, un lenguaje sencillo para propiciar la apropiación del software por parte de las comunidades. </p>
     <nav class="pager" data-m="sube">
-      <a href="problemas.html"><small>← Anterior</small><strong>Solución de problemas</strong></a>
-      <a href="ecosistema.html"><small>Siguiente →</small><strong>Ecosistema informático</strong></a>
+      <a href="index.html"><small>← Anterior</small><strong>Inicio</strong></a>
+      <a href="manual.html"><small>Siguiente →</small><strong>Manual básico de incubadoras</strong></a>
     </nav>
   </article>
 

@@ -12,7 +12,7 @@ from pathlib import Path
 import markdown
 
 sys.path.insert(0, str(Path(__file__).parent))
-from generar import ORIGEN, PAGINAS, SALIDA, EMOJI  # noqa: E402
+from generar import ORIGEN, PAGINAS, PROPIAS, SALIDA, EMOJI  # noqa: E402
 
 
 def palabras(texto):
@@ -23,7 +23,7 @@ def palabras(texto):
 
 errores = 0
 for archivo, nombre, grupo, origen, _ in PAGINAS:
-    if not origen:
+    if not origen or archivo in PROPIAS:
         continue
     md = (ORIGEN / origen).read_text(encoding="utf-8")
     md = re.sub(r"\A---\n.*?\n---\n", "", md, flags=re.S)
