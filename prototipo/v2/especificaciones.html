@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Especificaciones técnicas — LibreIncu</title>
+<link rel="icon" href="../assets/favicon-yema.png">
+<link rel="stylesheet" href="../assets/fuentes.css">
+<link rel="stylesheet" href="../estilo.css">
+<link rel="stylesheet" href="v2.css">
+</head>
+<body>
+<!-- Generado por herramientas/generar.py desde contenido-original/ -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="index.html">
+      <img src="../assets/huevo-yema.png" alt="">
+      <span><strong>LibreIncu</strong><small>AlterMundi · CTO</small></span>
+    </a>
+    <button class="menu-btn" aria-label="Abrir menú">Menú</button>
+    <nav>
+      <a href="index.html#hoy">Hoy</a>
+      <a href="manual.html">Incubar</a>
+      <a href="app.html">App LibrePollo</a>
+      <a href="especificaciones.html" aria-current="page">Técnico</a>
+      <a href="prensa.html">Videos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-hero doc-hero-v2">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Técnico</span>
+      <h1>Especificaciones técnicas</h1>
+      <p class="meta">2 secciones · 2 min de lectura</p>
+    </div>
+  </div>
+</div>
+
+<div class="doc">
+  <aside class="lateral">
+    <h4>Incubar</h4>
+    <a href="manual.html">Manual básico de incubadoras</a>
+    <a href="huevos.html">Huevos Fértiles e Incubación</a>
+    <a href="buenas-practicas.html">Preguntas para Buenas Prácticas</a>
+    <h4>App</h4>
+    <a href="app.html">LibrePollo - Aplicación</a>
+    <a href="problemas.html">Solución de problemas</a>
+    <h4>Técnico</h4>
+    <a href="especificaciones.html" aria-current="page">Especificaciones técnicas</a>
+    <a href="ecosistema.html">Ecosistema informático</a>
+    <h4>Comunidad</h4>
+    <a href="prensa.html">Videos, prensa y difusión</a>
+    <a href="contacto.html">Contacto</a>
+  </aside>
+
+  <article class="prosa doc-especificaciones">
+<h2 id="hardware" data-capitulo="Hardware"><strong>Hardware</strong></h2>
+<p>La incubadora LibreIncu es el resultado de un cuidadoso proceso de diseño iterativo , buscando crear un dispositivo accesible, eficiente y adaptado a las necesidades específicas de la AFCI. Además, usa componentes disponibles en el mercado y fáciles de reemplazar. </p>
+<h3 id="especificaciones-tecnicas"><strong>Especificaciones técnicas</strong></h3>
+<ul>
+<li class="fila"><span class="k">Dimensiones:</span> 100 cm de altura, 50 cm de ancho y 50 cm de profundidad  </li>
+<li class="fila"><span class="k">Capacidad:</span> 150 huevos en tres bandejas de incubación, con 50 huevos de nacedora  </li>
+<li class="fila"><span class="k">Sistema de control térmico:</span> </li>
+<li>Resistencia calefactora de 200W ubicada en la base (la misma que una panchera industrial)  </li>
+<li>Sensor BME280 para monitoreo preciso de temperatura, humedad y presión  </li>
+<li>Ventilador de distribución de aire (modelo Turbina Cooler Extractor Fan)  </li>
+<li>Control de temperatura objetivo de promedio 37.8°C  </li>
+<li class="fila"><span class="k">Sistema de humidificación:</span> </li>
+<li>Microaspersor con sistema de carga automática de agua  </li>
+<li>Presión de trabajo de 3 bar  </li>
+<li>Bomba de nafta (tipo genérica automotor)  </li>
+<li>Control integrado con el sistema de temperatura  </li>
+<li class="fila"><span class="k">Sistema de rotación:</span> </li>
+<li>Motor de rotación ubicado en la parte superior  </li>
+<li>Sistema de cinta de tracción para movimiento de bandejas  </li>
+<li>Sensores Reed para detectar posiciones extremas (los de alarma)   </li>
+<li>Rotación automática programable  </li>
+<li class="fila"><span class="k">Control electrónico:</span> </li>
+<li>Microcontrolador ESP32 como cerebro del sistema  </li>
+<li>Conectividad WiFi para control remoto  </li>
+<li>Aplicación LibrePollo para Android  </li>
+<li>Interfaz para visualización de datos históricos en Grafana</li>
+</ul>
+<p>El diseño físico incluye un circuito de convección forzada para una distribución uniforme del calor, con el aire caliente generado por la resistencia ascendiendo por detrás de las bandejas, acumulándose en el techo, y siendo forzado hacia abajo por el ventilador por la parte frontal.</p>
+<p>En las pruebas realizadas, LibreIncu ha logrado un índice de eclosión del 86%, comparable con las mejores marcas comerciales pero con un costo significativamente menor y adaptada específicamente a las necesidades de pequeños productores.</p>
+<h2 id="software" data-capitulo="Software"><strong>Software</strong></h2>
+<p>El ecosistema de software de LibreIncu está diseñado para facilitar el monitoreo remoto y control automático de la incubadora, ofreciendo una interfaz intuitiva y accesible para los usuarios.<img src="../assets/docs/especificaciones-0ec323e838.png" alt="" loading="lazy"></p>
+<p>Cada incubadora emite una red wifi cuyo nombre empieza con el nombre “incu-” seguida de un número. Un usuario que desee controlar su incubadora se puede conectar a ese wifi. Además cada incubadora se conecta a la red wifi para enviar datos por internet a un servidor.</p>
+<p><strong>Firmware de la incubadora</strong> </p>
+<p>El firmware de la incubadora, alojado en la carpeta /src/embedded del <a href="https://github.com/AlterMundi-MonitoreoyControl/Proyecto-Incubadora/tree/main/src/embedded#readme">repositorio</a> del proyecto, es el componente de software que corre directamente en el microcontrolador del sistema de control. Está desarrollado para gestionar de forma autónoma el funcionamiento de la incubadora, manteniendo condiciones ambientales óptimas para el desarrollo de los embriones.</p>
+<p>El firmware utiliza nodemcu y está escrito en lua, un lenguaje sencillo para propiciar la apropiación del software por parte de las comunidades. </p>
+    <nav class="pager" data-m="sube">
+      <a href="problemas.html"><small>← Anterior</small><strong>Solución de problemas</strong></a>
+      <a href="ecosistema.html"><small>Siguiente →</small><strong>Ecosistema informático</strong></a>
+    </nav>
+  </article>
+
+  <nav class="toc" aria-label="En esta página">
+    <h4>En esta página</h4>
+    <a href="#hardware">Hardware</a>
+    <a href="#software">Software</a>
+  </nav>
+</div>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="marca-pie"><img src="../assets/huevo-yema.png" alt=""><strong>LibreIncu</strong></div>
+    <div class="socios">
+      <span>Desarrollado por</span>
+      <img src="../assets/altermundi.png" alt="AlterMundi">
+      <img src="../assets/cto-sello.png" alt="Comunidad, Trabajo y Organización (CTO) Traslasierra">
+    </div>
+    <p><a href="https://github.com/AlterMundi-MonitoreoyControl/website">GitHub</a> · Córdoba, Argentina</p>
+    <p class="legal">This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+  </div>
+</footer>
+
+<script src="v2.js"></script>
+</body>
+</html>

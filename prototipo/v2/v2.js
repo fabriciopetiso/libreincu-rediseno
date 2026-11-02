@@ -55,7 +55,7 @@
         <path d="M0 -4 L5 2 L-3 3 Z"/><path d="M0 -3 L4 3 L-4 1 Z"/><path d="M-2 -3 L3 -1 L0 4 Z"/>
       </g>
       <g class="rajas" fill="none" stroke-linecap="round" stroke-linejoin="round">${rajas}</g>
-      <path d="${EGG}" fill="none" stroke="#2B2118" stroke-width="2.6"/>
+      <path class="contorno" d="${EGG}" fill="none" stroke="#2B2118" stroke-width="2.6"/>
     </svg>`;
     const q = (s) => el.querySelector(s);
     const rs = [...el.querySelectorAll(".raja")];
@@ -134,11 +134,60 @@
     scrollTo({ top: destino, behavior: reducido ? "auto" : "smooth" });
   });
 
+  // ---------- Pollito: 🐣 naciendo y 🐥 ya afuera ----------
+  // Dibujado de frente y con trazo grueso para que se lea bien en el tamaño del cursor
+  function crearPollito(tipo) {
+    const id = "pl" + uid++;
+    const el = document.createElement("div");
+    el.className = "capa " + tipo;
+    const T = 'stroke="#2B2118" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"';
+    const defs = `<defs>
+      <radialGradient id="${id}y" cx="38%" cy="28%" r="80%"><stop offset="0" stop-color="#FFE07A"/><stop offset=".55" stop-color="#FAC93C"/><stop offset="1" stop-color="#EDA91C"/></radialGradient>
+      <radialGradient id="${id}c" cx="36%" cy="30%" r="85%"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".6" stop-color="#F7F0E3"/><stop offset="1" stop-color="#DCCBB0"/></radialGradient>
+    </defs>`;
+    // Cara de frente: ojos, brillo, cachetes y pico (la mandíbula baja cuando pía)
+    const cara = (cy) => `
+      <g class="ojo"><circle cx="76" cy="${cy}" r="11" fill="#2B2118"/><circle cx="80" cy="${cy - 4}" r="4" fill="#fff"/></g>
+      <g class="ojo"><circle cx="124" cy="${cy}" r="11" fill="#2B2118"/><circle cx="128" cy="${cy - 4}" r="4" fill="#fff"/></g>
+      <ellipse cx="58" cy="${cy + 24}" rx="12" ry="7" fill="#F2845C" opacity=".55"/>
+      <ellipse cx="142" cy="${cy + 24}" rx="12" ry="7" fill="#F2845C" opacity=".55"/>
+      <path class="mand" d="M90 ${cy + 20} Q100 ${cy + 36} 110 ${cy + 20} Z" fill="#C85A12" stroke="#2B2118" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M84 ${cy + 18} Q100 ${cy + 4} 116 ${cy + 18} Q100 ${cy + 26} 84 ${cy + 18} Z" fill="#F59A2A" stroke="#2B2118" stroke-width="5" stroke-linejoin="round"/>`;
+    let cuerpo;
+    if (tipo === "nace") {
+      cuerpo = `
+        <circle cx="100" cy="122" r="74" fill="url(#${id}y)" ${T}/>
+        <ellipse cx="72" cy="86" rx="16" ry="10" transform="rotate(-25 72 86)" fill="#fff" opacity=".55"/>
+        ${cara(112)}
+        <path d="M10 156 L30 136 L50 158 L70 136 L90 158 L110 136 L130 158 L150 136 L170 158 L190 138 C196 200 154 236 100 236 C46 236 4 200 10 156 Z" fill="url(#${id}c)" ${T}/>
+        <path d="M40 196 Q60 214 92 220" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+        <path d="M46 58 C52 10 148 10 154 58 L138 46 L124 62 L108 44 L92 62 L76 46 L62 62 Z" fill="url(#${id}c)" ${T} transform="rotate(-10 100 40)"/>`;
+    } else {
+      cuerpo = `
+        <ellipse cx="100" cy="232" rx="60" ry="7" fill="#3C2410" opacity=".16"/>
+        <path d="M80 212 V226 M70 230 L80 225 L90 230 M120 212 V226 M110 230 L120 225 L130 230" fill="none" stroke="#E07B1E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M100 30 C152 30 184 76 184 132 C184 188 148 218 100 218 C52 218 16 188 16 132 C16 76 48 30 100 30 Z" fill="url(#${id}y)" ${T}/>
+        <ellipse cx="100" cy="168" rx="50" ry="36" fill="#FFE68E" opacity=".75"/>
+        <ellipse cx="68" cy="72" rx="17" ry="10" transform="rotate(-28 68 72)" fill="#fff" opacity=".55"/>
+        <path d="M92 32 C84 10 104 4 102 28 C110 10 128 16 112 34" fill="none" ${T}/>
+        <path class="ala ala-i" d="M22 128 C2 138 6 170 34 166" fill="none" ${T}/>
+        <path class="ala ala-d" d="M178 128 C198 138 194 170 166 166" fill="none" ${T}/>
+        ${cara(104)}`;
+    }
+    el.innerHTML = `<svg viewBox="0 0 200 240" overflow="visible" aria-hidden="true">${defs}${cuerpo}</svg>`;
+    return el;
+  }
+
   // ---------- El huevo: de la apertura al cursor ----------
   const cursor = document.createElement("div");
   cursor.className = "cursor-huevo";
   const huevo = crearHuevo();
   cursor.append(huevo);
+  // En la portada, al bajar: huevo → 🐣 → 🐥
+  const capas = document.querySelector(".hero") ? [crearPollito("nace"), crearPollito("pio")] : [];
+  capas.forEach((c) => cursor.append(c));
+  const mandibulas = [...cursor.querySelectorAll(".capa .mand")];
+  let etapa = 0;
   document.body.append(cursor);
   const salida = document.querySelector(".hero .huevo-logo");
   let ultimo = scrollY, giro = 0, quieto = 0, boca = 0, arrastrando = false;
@@ -176,9 +225,19 @@
     const piar = beak > 0.95 && quieto > 40 && Math.sin(ahora / 70) > 0.2 && (ahora % 2600) < 700;
     boca += ((piar ? 1 : 0) - boca) * 0.35;
     huevo.estado(crack, open, beak, boca);
+    if (capas.length) {
+      // Etapas según cuánto se recorrió la página, ya con el huevo en la pista
+      const nueva = dock < 0.98 ? 0 : prog < 0.34 ? 0 : prog < 0.67 ? 1 : 2;
+      if (nueva !== etapa) {
+        cursor.classList.remove("etapa-" + etapa);
+        cursor.classList.add("etapa-" + nueva);
+        etapa = nueva;
+      }
+      mandibulas.forEach((m) => m.setAttribute("transform", `translate(0 ${boca * 7})`));
+    }
 
     // Posición: interpola entre el lugar en la apertura y la pista
-    const chico = innerWidth < 700 ? 30 : 40;
+    const chico = innerWidth < 700 ? 34 : 46;
     const pr = pista.getBoundingClientRect();
     const cx = pr.left + pr.width / 2 - chico / 2;
     const cy = pr.top + prog * (pr.height - chico * 1.2);
@@ -243,6 +302,7 @@
       let foco = null, menor = Infinity;
       for (const b of bloques) {
         const r = b.getBoundingClientRect();
+        if (r.height > innerHeight * 0.7) continue;   // los bloques muy largos no se iluminan enteros
         const d = r.top > linea ? r.top - linea : r.bottom < linea ? linea - r.bottom : 0;
         if (d < menor) { menor = d; foco = b; }
       }
@@ -260,6 +320,27 @@
       if (e.isIntersecting) enlaces.forEach((a) => a.classList.toggle("activa", a.hash === "#" + e.target.id));
     }), { rootMargin: "-20% 0px -70% 0px" });
     prosa.querySelectorAll("h2[id]").forEach((h) => marcar.observe(h));
+  }
+
+  // ---------- Preguntas de Buenas Prácticas: se pueden marcar como respondidas ----------
+  const preguntas = [...document.querySelectorAll("li.i-pregunta")];
+  if (preguntas.length) {
+    const clave = "li-preguntas-" + location.pathname;
+    let hechas = [];
+    try { hechas = JSON.parse(localStorage.getItem(clave) || "[]"); } catch (e) {}
+    preguntas.forEach((li, i) => {
+      li.setAttribute("role", "checkbox");
+      li.tabIndex = 0;
+      const poner = (v) => { li.classList.toggle("hecha", v); li.setAttribute("aria-checked", v); };
+      poner(hechas.includes(i));
+      const cambiar = () => {
+        poner(!li.classList.contains("hecha"));
+        hechas = preguntas.map((p, j) => p.classList.contains("hecha") ? j : -1).filter((j) => j >= 0);
+        try { localStorage.setItem(clave, JSON.stringify(hechas)); } catch (e) {}
+      };
+      li.addEventListener("click", cambiar);
+      li.addEventListener("keydown", (e) => { if (e.key === " " || e.key === "Enter") { e.preventDefault(); cambiar(); } });
+    });
   }
 
   // ---------- Hoy: el video avanza y se enciende el hito que corresponde ----------

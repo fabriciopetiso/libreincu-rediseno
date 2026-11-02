@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solución de problemas — LibreIncu</title>
+<link rel="icon" href="../assets/favicon-yema.png">
+<link rel="stylesheet" href="../assets/fuentes.css">
+<link rel="stylesheet" href="../estilo.css">
+<link rel="stylesheet" href="v2.css">
+</head>
+<body>
+<!-- Generado por herramientas/generar.py desde contenido-original/ -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="index.html">
+      <img src="../assets/huevo-yema.png" alt="">
+      <span><strong>LibreIncu</strong><small>AlterMundi · CTO</small></span>
+    </a>
+    <button class="menu-btn" aria-label="Abrir menú">Menú</button>
+    <nav>
+      <a href="index.html#hoy">Hoy</a>
+      <a href="manual.html">Incubar</a>
+      <a href="app.html" aria-current="page">App LibrePollo</a>
+      <a href="especificaciones.html">Técnico</a>
+      <a href="prensa.html">Videos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-hero doc-hero-v2">
+  <div class="wrap">
+    <div>
+      <span class="kicker">App</span>
+      <h1>Diagnostico y solución de problemas Libreincu</h1>
+      <p class="meta">1 secciones · 1 min de lectura</p>
+    </div>
+  </div>
+</div>
+
+<div class="doc">
+  <aside class="lateral">
+    <h4>Incubar</h4>
+    <a href="manual.html">Manual básico de incubadoras</a>
+    <a href="huevos.html">Huevos Fértiles e Incubación</a>
+    <a href="buenas-practicas.html">Preguntas para Buenas Prácticas</a>
+    <h4>App</h4>
+    <a href="app.html">LibrePollo - Aplicación</a>
+    <a href="problemas.html" aria-current="page">Solución de problemas</a>
+    <h4>Técnico</h4>
+    <a href="especificaciones.html">Especificaciones técnicas</a>
+    <a href="ecosistema.html">Ecosistema informático</a>
+    <h4>Comunidad</h4>
+    <a href="prensa.html">Videos, prensa y difusión</a>
+    <a href="contacto.html">Contacto</a>
+  </aside>
+
+  <article class="prosa doc-problemas">
+
+<h2 id="problema-baja-humedad" data-capitulo="Problema: baja humedad">Problema: baja humedad</h2>
+<h3 id="a-no-se-escucha-el-sonido-de-la-bomba">a) No se escucha el sonido de la bomba</h3>
+<p>Si la bomba no enciende es un problema eléctrico o mecánico. </p>
+<p>Verificar que la fuente este encendida y entregando 12V.
+Utilice un multímetro:
+1. coloque el multimetro en posición 20 v continua
+<img src="../assets/docs/problemas-74c650ebe1.png" alt="" loading="lazy">
+2. coloque la punta negra en el cuarto terminal de la fuente donde salen cables negros. <img src="../assets/docs/problemas-c7bfcb991b.png" alt="" loading="lazy">
+3. Coloque la punta roja en el terminal del medio (5) de la caja azul que tiene cables. <img src="../assets/docs/problemas-3b4b2e6962.png" alt="" loading="lazy">
+4. El multímetro deberá indicar 12 v de lo contrario existe un problema de cableado o la fuente no funciona.
+<img src="../assets/docs/problemas-bd41624911.png" alt="" loading="lazy">
+5. Verificar que en el plazo de 5 minutos el rele se active encendiendo una de las luces rojas.
+<img src="../assets/docs/problemas-859e1d4b86.png" alt="" loading="lazy">
+6. Cada vez que se activa el rele verificar que el pin de la izquierda se pone en 12 V. Coloque la punta roja sobre el borne que esta a la izquieda del borne del medio (4) y deje la punta negra en la posición indicada en el punto dos. Verificar que esta en 0V hasta que se prende la luz y mientras la luz esta encendida la tensión es 12 V.</p>
+<p>En caso de que 6 no se cumpla: apagar la incubadora. Quitar el cable del terminal 4 y colocarlo en el 1, quitar el cable de  5  y colocarlo en 2. Quite el cable de in1 y colóquelo en in2 la siguiente figura muestra como queda el cableado final. 
+ <img src="../assets/docs/problemas-d9d959e092.png" alt="" loading="lazy"></p>
+<h3 id="b-la-bomba-se-enciende-cada-dos-minutos-pero-no-sale-agua">b) La bomba se enciende (cada dos minutos) pero no sale agua</h3>
+<p>Esto indica un problema en el recorrido del agua. Verificar que tenga agua el reservorio, que la manguera no este obstruida o ahorcada y que el pico no este tapado.</p>
+    <nav class="pager" data-m="sube">
+      <a href="app.html"><small>← Anterior</small><strong>LibrePollo - Aplicación</strong></a>
+      <a href="especificaciones.html"><small>Siguiente →</small><strong>Especificaciones técnicas</strong></a>
+    </nav>
+  </article>
+
+  <nav class="toc" aria-label="En esta página">
+    <h4>En esta página</h4>
+    <a href="#problema-baja-humedad">Problema: baja humedad</a>
+  </nav>
+</div>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="marca-pie"><img src="../assets/huevo-yema.png" alt=""><strong>LibreIncu</strong></div>
+    <div class="socios">
+      <span>Desarrollado por</span>
+      <img src="../assets/altermundi.png" alt="AlterMundi">
+      <img src="../assets/cto-sello.png" alt="Comunidad, Trabajo y Organización (CTO) Traslasierra">
+    </div>
+    <p><a href="https://github.com/AlterMundi-MonitoreoyControl/website">GitHub</a> · Córdoba, Argentina</p>
+    <p class="legal">This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+  </div>
+</footer>
+
+<script src="v2.js"></script>
+</body>
+</html>

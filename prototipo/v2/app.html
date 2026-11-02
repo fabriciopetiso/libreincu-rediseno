@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LibrePollo - Aplicación — LibreIncu</title>
+<link rel="icon" href="../assets/favicon-yema.png">
+<link rel="stylesheet" href="../assets/fuentes.css">
+<link rel="stylesheet" href="../estilo.css">
+<link rel="stylesheet" href="v2.css">
+</head>
+<body>
+<!-- Generado por herramientas/generar.py desde contenido-original/ -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="index.html">
+      <img src="../assets/huevo-yema.png" alt="">
+      <span><strong>LibreIncu</strong><small>AlterMundi · CTO</small></span>
+    </a>
+    <button class="menu-btn" aria-label="Abrir menú">Menú</button>
+    <nav>
+      <a href="index.html#hoy">Hoy</a>
+      <a href="manual.html">Incubar</a>
+      <a href="app.html" aria-current="page">App LibrePollo</a>
+      <a href="especificaciones.html">Técnico</a>
+      <a href="prensa.html">Videos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-hero doc-hero-v2">
+  <div class="wrap">
+    <div>
+      <span class="kicker">App</span>
+      <h1>Manual de Usuario - Aplicación LibrePollo</h1>
+      <p class="meta">5 secciones · 5 min de lectura</p>
+    </div>
+  </div>
+</div>
+
+<div class="doc">
+  <aside class="lateral">
+    <h4>Incubar</h4>
+    <a href="manual.html">Manual básico de incubadoras</a>
+    <a href="huevos.html">Huevos Fértiles e Incubación</a>
+    <a href="buenas-practicas.html">Preguntas para Buenas Prácticas</a>
+    <h4>App</h4>
+    <a href="app.html" aria-current="page">LibrePollo - Aplicación</a>
+    <a href="problemas.html">Solución de problemas</a>
+    <h4>Técnico</h4>
+    <a href="especificaciones.html">Especificaciones técnicas</a>
+    <a href="ecosistema.html">Ecosistema informático</a>
+    <h4>Comunidad</h4>
+    <a href="prensa.html">Videos, prensa y difusión</a>
+    <a href="contacto.html">Contacto</a>
+  </aside>
+
+  <article class="prosa doc-app">
+
+<h2 id="introduccion" data-capitulo="Introducción">Introducción</h2>
+<p>Esta aplicación te permite controlar y monitorear tu LibreIncu de forma fácil y eficiente desde tu dispositivo móvil. Vas a poder supervisar la temperatura, humedad, rotación de bandejas y recibir notificaciones importantes sobre el proceso de incubación.</p>
+<h2 id="componentes-de-la-aplicacion" data-capitulo="Componentes de la Aplicación">Componentes de la Aplicación</h2>
+<h3 id="pantalla-principal-inicio">Pantalla Principal (Inicio)</h3>
+<p>En la pantalla principal encontrás la información más importante de tu Incubadora:</p>
+<ul>
+<li class="fila"><span class="k">Estado de Conexión WiFi:</span> Muestra si la incubadora está conectada a internet</li>
+<li class="fila"><span class="k">Estado de Rotación:</span> Indica si el sistema de rotación está funcionando correctamente</li>
+<li class="fila"><span class="k">Temperatura Actual:</span> Muestra la temperatura en tiempo real con el siguiente código de colores:</li>
+<li>Verde: temperatura dentro del rango configurado</li>
+<li>Rojo: temperatura fuera del rango seguro</li>
+<li class="fila"><span class="k">Humedad Actual:</span> Muestra el nivel de humedad con el mismo sistema de colores</li>
+</ul>
+<figure class="lamina"><img src="../assets/docs/app-5e4419918b.jpg" alt="" loading="lazy" style="width:min(100%,250px)"></figure>
+<h3 id="menu-de-navegacion">Menú de Navegación</h3>
+<p>En la parte inferior de la pantalla encontrás seis botones de navegación:</p>
+<ol>
+<li class="fila"><span class="k">Inicio:</span> Pantalla principal con información en tiempo real</li>
+<li class="fila"><span class="k">Conexión:</span> Configuración de WiFi</li>
+<li class="fila"><span class="k">Configuraciones:</span> Ajustes generales de la incubadora</li>
+<li class="fila"><span class="k">Contador:</span> Control de bandejas y ciclos de incubación</li>
+<li class="fila"><span class="k">Rotación:</span> Control manual de la rotación</li>
+<li class="fila"><span class="k">Grafana:</span> Visualización de datos históricos</li>
+</ol>
+<figure class="lamina"><img src="../assets/docs/app-6e6cf70a4e.jpg" alt="" loading="lazy" style="width:min(100%,600px)"></figure>
+<h3 id="notificaciones-y-alertas">Notificaciones y Alertas</h3>
+<p>En la parte superior de la pantalla encontrás dos botones de navegación:</p>
+<ol>
+<li class="fila"><span class="k">Notificaciones:</span> Tutorial de suscripción al sistema de Notificaciones</li>
+<li class="fila"><span class="k">Alertas:</span> Muestra los llamados de atención más importantes</li>
+</ol>
+<figure class="lamina"><img src="../assets/docs/app-37dd7fc670.jpg" alt="" loading="lazy" style="width:min(100%,150px)"></figure>
+<h2 id="primera-conexion-y-configuraciones-basicas" data-capitulo="Primera Conexión y Configuraciones Básic">Primera Conexión y Configuraciones Básicas</h2>
+<h3 id="instalacion">Instalación</h3>
+<ul>
+<li>La aplicación LibrePollo se instala a través de un archico APK</li>
+<li>En caso de ser necesario, permitir "Instalar sin Analizar"</li>
+</ul>
+<h3 id="conexion-con-libreincu">Conexión con LibreIncu</h3>
+<ul>
+<li>Conectá y encendé la incubadora</li>
+<li>Ingresá a las configuraciones de WiFi de tu teléfono</li>
+<li>Esperá que aparezca la red WiFi "incu-" (luego del guión cada Incubadora tiene un número único de identificación)</li>
+<li>Conectate desde tu celular con la contraseña: 12345678</li>
+<li>Ya podés abrir la aplicación y comenzar el proceso de configuración de los parámetros básicos de tu LibreIncu</li>
+</ul>
+<h3 id="configuracion-de-wifi">Configuracion de Wifi</h3>
+<p>Para que la LibreIncu pueda enviar notificaciones móviles a tu teléfono y guardar sus datos historicos en Grafana es necesario que la misma tenga conexión a una red WiFi con acceso a internet. ¿Como hacemos eso? Desde la aplicación LibrePollo! De la siguiente manera:</p>
+<ul>
+<li>Presiona el botón "Conexión" en el menú inferior</li>
+<li>Selecciona tu red WiFi de la lista</li>
+<li>Ingresa la contraseña</li>
+<li>Espera a que se establezca la conexión</li>
+<li>Verifica el estado de conexión en la pantalla principal</li>
+<li>Si la conexión se realizó correctamente, en la pantalla principal el estado de WiFi dirá "Conectado"</li>
+</ul>
+<h3 id="configuraciones-basicas">Configuraciones Básicas</h3>
+<p>En esta sección podés modificar los parámetros predeterminados de la LibreIncu de acuerdo a tus necesidades, para ello:</p>
+<ul>
+<li>Presionas el botón de editar que se encuentra al lado del campo que quieras cambiar</li>
+<li>Ingresas el nuevo valor que querés que tenga el campo seleccionado</li>
+<li>Pulsas "Aceptar"</li>
+<li>Listo, ahora tu LibreIncu está adaptada a tus parámetros de producción</li>
+</ul>
+<h3 id="suscripcion-a-sistema-de-notificaciones">Suscripción a Sistema de Notificaciones</h3>
+<p>Para poder recibir notificaciones móviles sobre el comportamiento de tu LibreIncu cuando no te encontrás cerca es necesario trabajar en conjunto con otra aplicacion, llamada NTFY. Para poder tener esta herramienta realiza lo siguiente:</p>
+<ul>
+<li>Busca "NTFY" en la tienda de aplicaciones de te teléfono (EJ: GooglePlay)</li>
+<li>Instala la aplicaion NTFY</li>
+<li>En la Pantalla Principal de tu aplicación LibrePollo, dirigite al ícono de mensaje que se encuentra en la barra superior</li>
+<li>Seguí el tutorial detallado que se explica en esa pantalla</li>
+</ul>
+<h2 id="funciones-de-la-aplicacion" data-capitulo="Funciones de la Aplicación">Funciones de la Aplicación</h2>
+<h3 id="control-de-bandejas">Control de Bandejas</h3>
+<p>La sección "Contador" te permite gestionar hasta tres bandejas de incubación:</p>
+<ul>
+<li class="fila"><span class="k">Bandeja Verde:</span> Indica que la bandeja está vacía y lista para un nuevo ciclo</li>
+<li class="fila"><span class="k">Bandeja Roja:</span> Indica que la bandeja está en uso con un ciclo activo</li>
+</ul>
+<p>Para iniciar un nuevo ciclo:
+1. Selecciona una bandeja verde
+2. Confirma el inicio del ciclo</p>
+<p>Para finalizar un ciclo en curso:
+1. Selecciona una bandeja roja
+2. Confirma que deseas finalizar el ciclo
+3. La bandeja volverá a estado verde, lista para un nuevo ciclo</p>
+<h3 id="configuraciones-generales">Configuraciones Generales</h3>
+<p>Como ya vimos antes, en esta sección podes ajustar:</p>
+<ul>
+<li class="fila"><span class="k">Nombre de la Incubadora:</span> Identificador único de tu equipo</li>
+<li class="fila"><span class="k">Temperaturas:</span> Máxima y mínima permitidas</li>
+<li class="fila"><span class="k">Humedad:</span> Niveles máximo y mínimo deseados</li>
+<li class="fila"><span class="k">Período de Incubación:</span> Duración del ciclo en días</li>
+<li class="fila"><span class="k">Intervalos de Rotación:</span> Frecuencia de rotación de las bandejas</li>
+</ul>
+<h3 id="control-manual-de-rotacion">Control Manual de Rotación</h3>
+<p>La pantalla de rotación te permite:
+- Rotar las bandejas hacia arriba (↑)
+- Rotar las bandejas hacia abajo (↓)</p>
+<p>De esta forma podemos dejar las bandejas en la posición necesaria para realizar tareas de limpieza, carga y descarga, etc.</p>
+<h3 id="sistema-de-alertas">Sistema de Alertas</h3>
+<p>Cuando presionas el ícono de campana que se encuentra en la esquina superior derecha de la pantalla principal, la aplicación te mostrará alertas importantes sobre:
+- Problemas con el sensor de temperatura/humedad
+- Problemas de rotación
+- Problemas de conexión a internet</p>
+<h3 id="visualizacion-de-datos-grafana">Visualización de Datos (Grafana)</h3>
+<p>La sección Grafana te permite:
+- Ver gráficos históricos de temperatura y humedad
+- Analizar tendencias
+- Identificar patrones o problemas</p>
+<p>Recordá que para poder ver los datos guardados en Grafana tu teléfono tiene que estar conectado a una Red WiFi con acceso a internet</p>
+<h2 id="solucion-de-problemas-comunes" data-capitulo="Solución de Problemas Comunes">Solución de Problemas Comunes</h2>
+<h3 id="la-aplicacion-muestra-verifique-conexion-con-incubadora">La aplicación muestra "Verifique conexión con incubadora"</h3>
+<ol>
+<li>Verifica que la incubadora esté encendida</li>
+<li>Asegúrate de que estés conectado a la Red WiFi que tiene el nombre de tu incubadora (ModoAP)</li>
+<li>Presiona "Reintentar"</li>
+<li>Si el problema persiste, revisa la configuración WiFi</li>
+</ol>
+<h3 id="problemas-de-rotacion">Problemas de Rotación</h3>
+<p>Si ves una alerta de rotación:
+1. Verifica que no haya obstáculos físicos
+2. Usa los controles manuales de rotación para probar el sistema
+3. Si el problema persiste:
+    - Revisá la posición de la bandeja y los sensores Reed
+    - Verificá las conexiones del motor
+    - Controlá que las partes (cinta polea y motor) estén bien asociadas.</p>
+<h3 id="alertas-de-temperatura-o-humedad">Alertas de Temperatura o Humedad</h3>
+<p>Si recibis alertas constantes:
+1. Verifica que los rangos configurados sean correctos
+2. Asegurate de que el sensor no se encuentre obstruído
+3. Comproba el funcionamiento del sistema de ventilación</p>
+    <nav class="pager" data-m="sube">
+      <a href="buenas-practicas.html"><small>← Anterior</small><strong>Preguntas para Buenas Prácticas</strong></a>
+      <a href="problemas.html"><small>Siguiente →</small><strong>Solución de problemas</strong></a>
+    </nav>
+  </article>
+
+  <nav class="toc" aria-label="En esta página">
+    <h4>En esta página</h4>
+    <a href="#introduccion">Introducción</a>
+    <a href="#componentes-de-la-aplicacion">Componentes de la Aplicación</a>
+    <a href="#primera-conexion-y-configuraciones-basicas">Primera Conexión y Configuraciones Básicas</a>
+    <a href="#funciones-de-la-aplicacion">Funciones de la Aplicación</a>
+    <a href="#solucion-de-problemas-comunes">Solución de Problemas Comunes</a>
+  </nav>
+</div>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="marca-pie"><img src="../assets/huevo-yema.png" alt=""><strong>LibreIncu</strong></div>
+    <div class="socios">
+      <span>Desarrollado por</span>
+      <img src="../assets/altermundi.png" alt="AlterMundi">
+      <img src="../assets/cto-sello.png" alt="Comunidad, Trabajo y Organización (CTO) Traslasierra">
+    </div>
+    <p><a href="https://github.com/AlterMundi-MonitoreoyControl/website">GitHub</a> · Córdoba, Argentina</p>
+    <p class="legal">This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+  </div>
+</footer>
+
+<script src="v2.js"></script>
+</body>
+</html>
