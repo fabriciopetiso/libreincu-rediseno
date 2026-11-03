@@ -521,3 +521,22 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .hoy.l-arriba .boton { background: var(--yema); border-color: var(--yema); color: var(--tinta); }
 .hoy.l-arriba .boton.secundario { background: transparent; color: #FBF8F1; border-color: rgba(255, 255, 255, .45); }
 #resultados { scroll-margin-top: calc(var(--header-h) + 24px); }
+
+/* Pedí la tuya: resumen de la ficha y precio */
+.pedila { scroll-margin-top: calc(var(--header-h) + 24px); align-items: start; }
+.resumen { list-style: none; padding: 0; margin: 20px 0 18px; display: grid; gap: 10px; }
+.resumen li { position: relative; padding-left: 26px; color: #DCE3D6; }
+.resumen li::before { content: ""; position: absolute; left: 0; top: .5em; width: 10px; height: 10px; border-radius: 50%; background: var(--yema); }
+.resumen b { color: #FBF8F1; font-weight: 600; }
+.ver-ficha { color: var(--yema); font-weight: 600; }
+.precio { padding: 22px 24px; border-radius: var(--radius); background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14); margin-bottom: 16px; }
+.precio span { display: block; font: 600 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: #C9D6C2; margin-bottom: 10px; }
+.precio strong { display: block; font: 400 clamp(32px, 3.6vw, 46px)/1.1 var(--serif); color: #FBF8F1; }
+.precio strong.pendiente { font: 600 16px/1.4 var(--sans); }
+.publicado .precio:has(> strong.pendiente) { display: none; }
+.nota-wa { font-size: 13px; margin-top: 12px !important; }
+
+/* Proyecto: arriba solo el título y el video */
+.hoy.solo-titulo .hoy-grid { align-items: center; }
+.hoy.solo-titulo h1 { font-size: clamp(40px, 5.4vw, 76px); }
+.lead-proyecto { font: 400 clamp(22px, 2.5vw, 30px)/1.4 var(--serif); max-width: 40ch; margin: 0 0 56px; }

@@ -37,7 +37,7 @@ A_MANO = ["index.html", "incubadora.html", "proyecto.html", "tecnologia.html", "
 
 # Las 4 puertas de entrada: (archivo, nombre en el menú, título de la tarjeta, una línea)
 LANDINGS = [
-    ("incubadora.html", "Incubadora", "La incubadora", "LibreIncu 150: qué es, qué hace y cómo pedir presupuesto."),
+    ("incubadora.html", "Incubadora", "La incubadora", "LibreIncu 150: qué es, qué hace y cómo pedir la tuya."),
     ("proyecto.html", "Proyecto", "El proyecto", "Por qué existe LibreIncu, quiénes lo hacen y qué logramos."),
     ("tecnologia.html", "Tecnología", "Tecnología libre", "Hardware, firmware, app y documentación abiertos."),
     ("produccion.html", "Producción", "Producción avícola", "Genética propia, alimentación agroecológica y buenas prácticas."),
@@ -60,7 +60,7 @@ PORTADAS = {"huevos.html": {"titulo": "Manejo productivo", "bajada": "Huevos fé
 
 WHATSAPP = "https://wa.me/5493517350189?text="
 MENSAJES = {
-    "compra": "Hola, quiero pedir presupuesto por la incubadora LibreIncu 150",
+    "compra": "Hola, quiero pedir una incubadora LibreIncu 150",
     "soporte": "Hola, necesito soporte técnico con mi incubadora LibreIncu",
     "institucional": "Hola, escribo desde una organización y quiero conocer más sobre el proyecto LibreIncu",
 }
@@ -75,7 +75,7 @@ def whatsapp(motivo):
 PROPIAS = {"contacto.html": f"""<p class="contacto-intro">Escribinos por WhatsApp o por mail. Elegí el motivo y te llega un mensaje ya escrito para empezar la conversación.</p>
 <div class="contacto">
   <a class="contacto-item" id="motivo-compra" href="{whatsapp("compra")}" target="_blank" rel="noopener">
-    <span class="contacto-tipo">Comprar · presupuesto</span>
+    <span class="contacto-tipo">Comprar</span>
     <strong>Quiero una incubadora</strong>
     <small>WhatsApp 3517350189</small>
   </a>
