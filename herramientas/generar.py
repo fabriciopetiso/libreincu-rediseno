@@ -37,7 +37,7 @@ A_MANO = ["index.html", "incubadora.html", "proyecto.html", "tecnologia.html", "
 
 # Las 4 puertas de entrada: (archivo, nombre en el menú, título de la tarjeta, una línea)
 LANDINGS = [
-    ("incubadora.html", "Incubadora", "La incubadora", "LibreIncu 150: qué es, qué hace y cómo pedir la tuya."),
+    ("incubadora.html", "Incubadora", "La incubadora", "LibreIncu 150: qué es, qué hace y cómo comprar la tuya."),
     ("proyecto.html", "Proyecto", "El proyecto", "Por qué existe LibreIncu, quiénes lo hacen y qué logramos."),
     ("tecnologia.html", "Tecnología", "Tecnología libre", "Hardware, firmware, app y documentación abiertos."),
     ("produccion.html", "Producción", "Producción avícola", "Genética propia, alimentación agroecológica y buenas prácticas."),

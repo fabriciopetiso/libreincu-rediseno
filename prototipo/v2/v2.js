@@ -183,8 +183,8 @@
   cursor.className = "cursor-huevo";
   const huevo = crearHuevo();
   cursor.append(huevo);
-  // En la portada, al bajar: huevo → 🐣 → 🐥
-  const capas = document.querySelector(".hero") ? [crearPollito("nace"), crearPollito("pio")] : [];
+  // Al bajar: huevo → 🐣 → 🐥 (en la portada por tramos; en las demás páginas, al llegar al final)
+  const capas = [crearPollito("nace"), crearPollito("pio")];
   capas.forEach((c) => cursor.append(c));
   const mandibulas = [...cursor.querySelectorAll(".capa .mand")];
   let etapa = 0;
@@ -219,7 +219,7 @@
       crack = clamp(hp / 0.3); open = clamp((hp - 0.26) / 0.2); beak = clamp((hp - 0.38) / 0.18);
       dock = suave(clamp((hp - 0.5) / 0.5));
     } else {
-      crack = clamp(prog / 0.75); open = clamp((prog - 0.78) / 0.1); beak = clamp((prog - 0.86) / 0.1); dock = 1;
+      crack = clamp(prog / 0.5); open = clamp((prog - 0.52) / 0.1); beak = clamp((prog - 0.62) / 0.12); dock = 1;
     }
     // Cuando el pico está afuera y la página se queda quieta, pía
     const piar = beak > 0.95 && quieto > 40 && Math.sin(ahora / 70) > 0.2 && (ahora % 2600) < 700;
@@ -227,7 +227,9 @@
     huevo.estado(crack, open, beak, boca);
     if (capas.length) {
       // Etapas según cuánto se recorrió la página, ya con el huevo en la pista
-      const nueva = dock < 0.98 ? 0 : prog < 0.34 ? 0 : prog < 0.67 ? 1 : 2;
+      const nueva = dock < 0.98 ? 0
+        : salida ? (prog < 0.34 ? 0 : prog < 0.67 ? 1 : 2)
+        : (prog < 0.8 ? 0 : prog < 0.93 ? 1 : 2);
       if (nueva !== etapa) {
         cursor.classList.remove("etapa-" + etapa);
         cursor.classList.add("etapa-" + nueva);
