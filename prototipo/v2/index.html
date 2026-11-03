@@ -3,27 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LibreIncu</title>
+<title>LibreIncu — incubadora libre para la producción avícola familiar</title>
+<meta name="description" content="LibreIncu: incubadora libre de 150 huevos, controlada desde el celular, para que las familias productoras críen sus propios pollitos con genética propia.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LibreIncu">
+<meta property="og:description" content="Tus propios pollitos, tu propia genética, tu propia incubadora.">
+<meta property="og:image" content="https://fabriciopetiso.github.io/libreincu-rediseno/prototipo/assets/incubadora-carga.jpg">
 <link rel="icon" href="../assets/favicon-yema.png">
 <link rel="stylesheet" href="../assets/fuentes.css">
 <link rel="stylesheet" href="../estilo.css">
 <link rel="stylesheet" href="v2.css">
+<script data-publicado>if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) document.documentElement.classList.add("publicado")</script>
 </head>
 <body class="portada">
 
 <header class="top">
   <div class="wrap">
-    <a class="marca" href="index.html">
+    <a class="marca" href="index.html" aria-label="LibreIncu, inicio">
       <img src="../assets/huevo-yema.png" alt="">
-      <span><strong>LibreIncu</strong><small>AlterMundi · CTO</small></span>
+      <span><strong>LibreIncu</strong></span>
     </a>
-    <button class="menu-btn" aria-label="Abrir menú">Menú</button>
-    <nav>
-      <a href="especificaciones.html">La Incubadora</a>
-      <a href="app.html">App LibrePollo</a>
-      <a href="#hoy">Dónde estamos hoy</a>
-      <a href="prensa.html">Videos</a>
-      <a href="huevos.html">BPAs de Incubación</a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+    <nav aria-label="Secciones">
+      <a href="incubadora.html">Incubadora</a>
+      <a href="proyecto.html">Proyecto</a>
+      <a href="tecnologia.html">Tecnología</a>
+      <a href="produccion.html">Producción</a>
       <a href="contacto.html">Contacto</a>
     </nav>
   </div>
@@ -32,179 +37,69 @@
 <section class="hero" data-capitulo="Inicio">
   <div class="contenido">
     <h1>LibreIncu</h1>
-    <p class="sub">Tecnología Libre para la Soberanía Alimentaria en la AFCI</p>
+    <p class="frase">Tus propios pollitos, tu propia genética, tu propia incubadora.</p>
+    <p class="sub">Incubadora libre de 150 huevos para la producción avícola familiar</p>
+    <div class="acciones">
+      <a class="boton" href="incubadora.html">Conocé la incubadora</a>
+      <a class="boton secundario" href="incubadora.html#presupuesto">Pedí presupuesto</a>
+    </div>
     <div class="huevo-logo" aria-hidden="true"></div>
   </div>
-  <a class="bajar" href="#proyecto">Bajar</a>
+  <a class="bajar" href="#que-es">Bajar</a>
 </section>
 
-<section id="proyecto" class="bloque" data-capitulo="El proyecto">
-  <div class="wrap intro">
-    <div data-m="sube">
-      <span class="kicker">Introducción al Proyecto</span>
-      <p class="lead" data-m="palabras">LibreIncu es una iniciativa de soberanía tecnológica y alimentaria desarrollada colaborativamente por AlterMundi y Comunidad, Trabajo y Organización (CTO), junto con diversas organizaciones de la Agricultura Familiar, Campesina e Indígena (AFCI) de la provincia de Córdoba, Argentina.</p>
-      <p class="libres" data-m="sube"><span>Hardware libre</span><span>Software libre</span></p>
-    </div>
-    <figure class="foto" data-m="foto" style="margin:0"><img src="../assets/incu-celu.jpg" alt="Celular con la app junto a la incubadora LibreIncu 150"></figure>
+<section id="que-es" class="bloque" data-capitulo="Qué es">
+  <div class="wrap portada-intro">
+    <span class="kicker" data-m>Qué es LibreIncu</span>
+    <p class="lead" data-m="palabras">Una incubadora con 86 % de eclosión que controla con precisión las variables críticas del proceso, con un sistema de monitoreo y alarmas accesible desde tu teléfono. Tecnología de punta pensada por productores para pequeños y medianos productores. Es parte de un proyecto más grande: producir pollitos con genética y alimento propios.</p>
+    <p class="libres" data-m="sube"><span>Hardware libre</span><span>Software libre</span></p>
   </div>
 </section>
 
-<section class="bloque" style="padding-top:0" data-capitulo="Triple dependencia">
+<section class="bloque" style="padding-top:0" data-capitulo="Secciones">
   <div class="wrap">
-    <h2 class="relato-titulo" data-m="palabras">El proyecto busca romper la triple dependencia que enfrenta la AFCI en la producción avícola</h2>
-    <div class="scrolly">
-      <div class="medios" data-m>
-        <figure class="foto activa"><img src="../assets/pollitos.jpg" alt="Cajas con pollitos bebé"></figure>
-        <figure class="foto"><img src="../assets/gallinas.jpg" alt="Gallinas en un gallinero bajo los árboles"></figure>
-        <figure class="foto"><img src="../assets/incubadoras.jpg" alt="Incubadoras en una sala"></figure>
-        <span class="num" aria-hidden="true">01</span>
-      </div>
-      <div>
-        <article class="paso" data-m="paso"><div>
-          <div class="n">01 / 03</div>
-          <h3>Dependencia genética</h3>
-          <p>El "pollito bebé híbrido" utilizado tanto en la industria como por pequeños productores proviene de un <a href="https://revistacrisis.com.ar/notas/informe-sobre-pollos-argentinos/" target="_blank" rel="noopener">oligopolio mundial</a> (Cobb-Vantress y Aviagem), que controlan la genética de todos los pollos industriales.</p>
-          <div class="propuesta" data-m="propuesta">
-            <span class="propuesta-kicker">Proponemos</span>
-            <span class="propuesta-titulo">Genética propia</span>
-            <p>Cada comunidad, territorio o región puede decidir qué genética quiere reproducir. En algunos casos, recuperamos y cruzamos gallinas criollas con razas pesadas para desarrollar una genética avícola propia para carne, reproducida por las mismas familias productoras. En otros, para fomentar la producción de huevos libres de jaula, se reproduce la ponedora Negra INTA.</p>
-          </div>
-          <div class="barra"></div>
-        </div></article>
-        <article class="paso" data-m="paso"><div>
-          <div class="n">02 / 03</div>
-          <h3><a href="https://materialavicola.cto.ar/" target="_blank" rel="noopener">Dependencia alimentaria</a></h3>
-          <p>La dieta de estos pollos requiere precursores de crecimiento, núcleos vitamínicos y minerales de origen industrial, además de maíz y soja del modelo del agronegocio.</p>
-          <div class="propuesta" data-m="propuesta">
-            <span class="propuesta-kicker">Proponemos</span>
-            <span class="propuesta-titulo">Dietas agroecológicas</span>
-            <p>Formulamos dietas agroecológicas desde nuestro saber, con alimentos producidos en el territorio y sin depender de núcleos industriales. Buscamos un manejo integral que permita el no uso de antibióticos preventivos.</p>
-          </div>
-          <div class="barra"></div>
-        </div></article>
-        <article class="paso" data-m="paso"><div>
-          <div class="n">03 / 03</div>
-          <h3>Dependencia tecnológica</h3>
-          <p>Las incubadoras comerciales son inaccesibles por su costo o están diseñadas para hobbistas, no para producción familiar.</p>
-          <div class="propuesta" data-m="propuesta">
-            <span class="propuesta-kicker">Proponemos</span>
-            <span class="propuesta-titulo">Incubadora libre</span>
-            <p>LibreIncu es una incubadora de hardware y software libres, fabricada en la ruralidad con componentes fáciles de conseguir y reemplazar. Ya logra un 86% de eclosión a un costo mucho menor que las comerciales.</p>
-          </div>
-          <div class="barra"></div>
-        </div></article>
-      </div>
+    <div class="accesos">
+      <a class="acceso" href="incubadora.html" data-m="sube">
+        <img src="../assets/incubadora-carga.jpg" alt="" loading="lazy">
+        <div><span class="num">01</span><h3>La incubadora</h3><p>150 huevos, control automático y app en el celular. Pedí presupuesto.</p></div>
+      </a>
+      <a class="acceso" href="proyecto.html" data-m="sube" style="--k:1">
+        <img src="../assets/entrega.jpg" alt="" loading="lazy">
+        <div><span class="num">02</span><h3>El proyecto</h3><p>Soberanía tecnológica y alimentaria, construida con cooperativas y organizaciones.</p></div>
+      </a>
+      <a class="acceso" href="tecnologia.html" data-m="sube">
+        <img src="../assets/incubadora-recorrido.jpg" alt="" loading="lazy">
+        <div><span class="num">03</span><h3>Tecnología libre</h3><p>Hardware, firmware, app y documentación abiertos para replicar.</p></div>
+      </a>
+      <a class="acceso" href="produccion.html" data-m="sube" style="--k:1">
+        <img src="../assets/gallinas.jpg" alt="" loading="lazy">
+        <div><span class="num">04</span><h3>Producción avícola</h3><p>Genética propia, alimentación agroecológica y buenas prácticas.</p></div>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="huevo" data-progreso data-capitulo="La incubadora">
-  <div class="fijo">
-    <div class="rotulo"><span class="kicker">La incubadora</span></div>
-    <figure class="foto marco" style="margin:0"><img src="../assets/incubadora-carga.jpg" alt="Productora retirando una bandeja de pollitos recién nacidos de la incubadora"></figure>
-    <div class="texto">
-      <p>Como respuesta a este problema, LibreIncu presenta una incubadora avícola con tecnología de monitoreo y control en línea, diseñada específicamente para las necesidades de la AFCI, permitiendo la recuperación del "saber ancestral" y el desarrollo de genética propia para la transición hacia un modelo agroecológico integral.</p>
-    </div>
-  </div>
-</section>
-
-<section id="hoy" class="hoy" data-capitulo="Hoy">
-  <div class="wrap hoy-grid">
-    <div class="hoy-video" data-m="escala">
-      <video id="video-hoy" src="../assets/hoy.mp4" poster="../assets/hoy-poster.jpg" playsinline muted preload="metadata"></video>
-      <div class="hoy-controles">
-        <button class="hoy-play" aria-label="Pausar">❚❚</button>
-        <button class="hoy-sonido">Activar sonido</button>
-      </div>
-      <div class="hoy-barra"><span></span></div>
-    </div>
-    <div class="hoy-texto">
-      <span class="kicker" data-m>Hoy</span>
-      <h2 data-m="palabras">Dónde estamos hoy</h2>
-      <ol class="hitos">
-        <li data-t="4"><b>+3 años</b></li>
-        <li data-t="12"><b>7</b> cooperativas</li>
-        <li data-t="14"><b>+2.500</b> huevos incubados</li>
-        <li data-t="18"><b>86%</b> de eclosión</li>
-        <li data-t="24"><b>Genética</b> avícola propia<small>Gallinas criollas + razas pesadas</small></li>
-        <li data-t="30"><b>Dietas</b> agroecológicas<small>desde nuestro saber</small></li>
-        <li data-t="32"><b>Declarado de Interés Legislativo</b><small>Legislatura de Córdoba · Dic. 2025</small></li>
-        <li data-t="36"><b>3ª etapa</b><small>Formulación · Reproducción genética propia</small></li>
-        <li data-t="48"><b>LibreIncu150</b> fabricada en la ruralidad</li>
-        <li data-t="54"><b>Modelo avícola integral</b><small>Córdoba · Tucumán · Santa Fe · Mendoza</small></li>
-        <li data-t="60"><b>Plantinera</b> hortícola<small>prototipo → producción · Las Tapias</small></li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<section id="videos" class="bloque" data-capitulo="Videos">
+<section class="bloque" style="padding-top:0" data-capitulo="Resultados">
   <div class="wrap">
-    <div class="videos">
-      <div class="video" data-m="escala">
-        <button class="yt" data-id="WrC1Y-ACtMo" aria-label='Video "Presentación Incubadora AlterMundi"'>
-          <img src="../assets/yt-presentacion.jpg" alt="">
-          <span class="play"><i></i>Ver video</span>
-        </button>
-        <h3>Video "Presentación Incubadora AlterMundi"</h3>
-      </div>
-      <div class="video" data-m="escala">
-        <button class="yt" data-id="SZky4Ak8hUw" aria-label="Video Equipo de desarrollo">
-          <img src="../assets/yt-equipo.jpg" alt="">
-          <span class="play"><i></i>Ver video</span>
-        </button>
-        <h3>Equipo de desarrollo</h3>
-      </div>
-    </div>
-
-    <div class="galeria">
-      <figure class="foto" data-m="foto" style="margin:0"><img src="../assets/entrega.jpg" alt="Entrega de incubadoras LibreIncu con productores y organizaciones"></figure>
-      <figure class="foto" data-m="foto" style="margin:0"><img src="../assets/huevos.jpg" alt="Bandejas con huevos fértiles dentro de la incubadora"></figure>
-      <div class="foto falta" data-m="sube"><span><b>Foto pendiente</b>productores con sus pollitos en el campo</span></div>
-      <figure class="foto" data-m="foto" style="margin:0"><img src="../assets/pollitos-negros.jpg" alt="Pollitos bajo la campana de calor"></figure>
-      <div class="foto falta" data-m="sube" style="--k:1"><span><b>Foto pendiente</b>equipo armando o reparando una incubadora</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="documentacion" class="bloque" style="padding-top:0" data-capitulo="Documentación">
-  <div class="wrap">
-    <span class="kicker" data-m>Documentación</span>
-    <div class="docs-grupos">
-      <div class="grupo" data-m="sube">
-        <h3>La Incubadora</h3>
-        <a href="especificaciones.html">Especificaciones técnicas</a>
-        <a href="manual.html">Manual básico de incubadoras</a>
-        <a href="ecosistema.html">Ecosistema informático</a>
-      </div>
-      <div class="grupo" data-m="sube" style="--k:1">
-        <h3>BPAs de Incubación</h3>
-        <a href="huevos.html">Huevos Fértiles e Incubación</a>
-        <a href="buenas-practicas.html">Preguntas para Buenas Prácticas</a>
-      </div>
-      <div class="grupo" data-m="sube" style="--k:2">
-        <h3>App</h3>
-        <a href="app.html">LibrePollo - Aplicación</a>
-        <a href="problemas.html">Solución de problemas</a>
-      </div>
-      <div class="grupo" data-m="sube" style="--k:3">
-        <h3>Comunidad</h3>
-        <a href="prensa.html">Videos, prensa y difusión</a>
-        <a href="contacto.html">Contacto</a>
-      </div>
-    </div>
+    <span class="kicker" data-m>Dónde estamos hoy</span>
+    <a class="cifras" href="proyecto.html#resultados" style="margin-top:24px" data-m="sube">
+      <div><b>+3</b><span>años de desarrollo</span></div>
+      <div><b>7</b><span>cooperativas</span></div>
+      <div><b>+2.500</b><span>huevos incubados</span></div>
+      <div><b>86 %</b><span>de eclosión en las pruebas realizadas</span></div>
+    </a>
   </div>
 </section>
 
 <footer class="pie">
   <div class="wrap">
     <div class="marca-pie"><img src="../assets/huevo-yema.png" alt=""><strong>LibreIncu</strong></div>
-    <div class="socios" data-m="sube">
+    <div class="socios">
       <span>Desarrollado por</span>
       <img src="../assets/altermundi.png" alt="AlterMundi">
       <img src="../assets/cto-sello.png" alt="Comunidad, Trabajo y Organización (CTO) Traslasierra">
     </div>
-    <p><a href="https://github.com/AlterMundi-MonitoreoyControl/website">GitHub</a> · Córdoba, Argentina</p>
+    <p><a href="contacto.html">Contacto</a> · <a href="https://github.com/AlterMundi-MonitoreoyControl/website">GitHub</a> · Córdoba, Argentina</p>
     <p class="legal">This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
   </div>
 </footer>

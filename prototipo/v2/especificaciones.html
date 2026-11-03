@@ -8,23 +8,23 @@
 <link rel="stylesheet" href="../assets/fuentes.css">
 <link rel="stylesheet" href="../estilo.css">
 <link rel="stylesheet" href="v2.css">
+<script data-publicado>if (!/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) document.documentElement.classList.add("publicado")</script>
 </head>
 <body>
 <!-- Generado por herramientas/generar.py desde contenido-original/ -->
 
 <header class="top">
   <div class="wrap">
-    <a class="marca" href="index.html">
+    <a class="marca" href="index.html" aria-label="LibreIncu, inicio">
       <img src="../assets/huevo-yema.png" alt="">
-      <span><strong>LibreIncu</strong><small>AlterMundi · CTO</small></span>
+      <span><strong>LibreIncu</strong></span>
     </a>
-    <button class="menu-btn" aria-label="Abrir menú">Menú</button>
-    <nav>
-      <a href="especificaciones.html" aria-current="page">La Incubadora</a>
-      <a href="app.html">App LibrePollo</a>
-      <a href="index.html#hoy">Dónde estamos hoy</a>
-      <a href="prensa.html">Videos</a>
-      <a href="huevos.html">BPAs de Incubación</a>
+    <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+    <nav aria-label="Secciones">
+      <a href="incubadora.html">Incubadora</a>
+      <a href="proyecto.html">Proyecto</a>
+      <a href="tecnologia.html" aria-current="page">Tecnología</a>
+      <a href="produccion.html">Producción</a>
       <a href="contacto.html">Contacto</a>
     </nav>
   </div>
@@ -33,47 +33,27 @@
 <div class="doc-hero doc-hero-v2">
   <div class="wrap">
     <div>
-      <span class="kicker">La Incubadora</span>
+      <span class="kicker">Tecnología</span>
       <h1>Especificaciones técnicas</h1>
       <p class="meta">2 secciones · 2 min de lectura</p>
     </div>
-    <video class="doc-hero-video" src="../assets/incubadora-recorrido.mp4" poster="../assets/incubadora-recorrido.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
   </div>
 </div>
 
-<section class="ficha">
-  <div class="wrap">
-    <p class="ficha-lead">LibreIncu es una incubadora para 150 huevos que controla sola la temperatura, la humedad y la rotación de los huevos. Se maneja desde el celular y está hecha con hardware y software libres.</p>
-    <dl class="ficha-datos">
-      <div><dt>Capacidad</dt><dd>150 huevos</dd><small>3 bandejas de 50 huevos y una nacedora de 50 huevos</small></div>
-      <div><dt>Tamaño</dt><dd>100 × 50 × 50 cm</dd><small>alto, ancho y profundidad</small></div>
-      <div><dt>Temperatura</dt><dd>37,8 °C</dd><small>resistencia de 200 W y ventilador</small></div>
-      <div><dt>Humedad</dt><dd>Automática</dd><small>microaspersor con carga de agua</small></div>
-      <div><dt>Rotación</dt><dd>Automática</dd><small>motor y cinta, programable</small></div>
-      <div><dt>Control</dt><dd>ESP32 + WiFi</dd><small>app LibrePollo y datos en Grafana</small></div>
-      <div><dt>Eclosión</dt><dd>86 %</dd><small>en las pruebas realizadas</small></div>
-      <div><dt>Repuestos</dt><dd>Del mercado</dd><small>fáciles de conseguir y reemplazar</small></div>
-    </dl>
-    <div class="ficha-sigue">
-      <a href="manual.html"><small>Cómo se usa</small><strong>Manual básico de incubadoras</strong></a>
-      <a href="ecosistema.html"><small>Cómo se conecta</small><strong>Ecosistema informático</strong></a>
-    </div>
-  </div>
-</section>
 <div class="doc">
   <aside class="lateral">
-    <h4>La Incubadora</h4>
+    <h4><a href="tecnologia.html">Tecnología</a></h4>
     <a href="especificaciones.html" aria-current="page">Especificaciones técnicas</a>
-    <a href="manual.html">Manual básico de incubadoras</a>
     <a href="ecosistema.html">Ecosistema informático</a>
-    <h4>BPAs de Incubación</h4>
-    <a href="huevos.html">Huevos Fértiles e Incubación</a>
-    <a href="buenas-practicas.html">Preguntas para Buenas Prácticas</a>
-    <h4>App</h4>
     <a href="app.html">LibrePollo - Aplicación</a>
     <a href="problemas.html">Solución de problemas</a>
-    <h4>Comunidad</h4>
+    <a href="manual.html">Manual básico de incubadoras</a>
+    <h4><a href="produccion.html">Producción</a></h4>
+    <a href="huevos.html">Huevos Fértiles e Incubación</a>
+    <a href="buenas-practicas.html">Preguntas para Buenas Prácticas</a>
+    <h4><a href="proyecto.html">Proyecto</a></h4>
     <a href="prensa.html">Videos, prensa y difusión</a>
+    <h4><a href="contacto.html">Contacto</a></h4>
     <a href="contacto.html">Contacto</a>
   </aside>
 
@@ -115,7 +95,7 @@
 <p>El firmware utiliza nodemcu y está escrito en lua, un lenguaje sencillo para propiciar la apropiación del software por parte de las comunidades. </p>
     <nav class="pager" data-m="sube">
       <a href="index.html"><small>← Anterior</small><strong>Inicio</strong></a>
-      <a href="manual.html"><small>Siguiente →</small><strong>Manual básico de incubadoras</strong></a>
+      <a href="ecosistema.html"><small>Siguiente →</small><strong>Ecosistema informático</strong></a>
     </nav>
   </article>
 
@@ -134,7 +114,7 @@
       <img src="../assets/altermundi.png" alt="AlterMundi">
       <img src="../assets/cto-sello.png" alt="Comunidad, Trabajo y Organización (CTO) Traslasierra">
     </div>
-    <p><a href="https://github.com/AlterMundi-MonitoreoyControl/website">GitHub</a> · Córdoba, Argentina</p>
+    <p><a href="contacto.html">Contacto</a> · <a href="https://github.com/AlterMundi-MonitoreoyControl/website">GitHub</a> · Córdoba, Argentina</p>
     <p class="legal">This work is licensed under <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
   </div>
 </footer>

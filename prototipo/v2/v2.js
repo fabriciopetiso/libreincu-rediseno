@@ -362,8 +362,10 @@
     };
     ["timeupdate", "play", "pause", "seeked"].forEach((ev) => video.addEventListener(ev, pintar));
     video.addEventListener("ended", () => { video.currentTime = 0; video.play(); });
+    // En celulares o con ahorro de datos no arranca solo: se reproduce al tocar
+    const liviano = navigator.connection?.saveData || matchMedia("(max-width: 700px)").matches;
     new IntersectionObserver(([e]) => {
-      if (e.isIntersecting && !elegido && !reducido) video.play().catch(() => {});
+      if (e.isIntersecting && !elegido && !reducido && !liviano) video.play().catch(() => {});
       if (!e.isIntersecting) video.pause();
     }, { threshold: 0.5 }).observe(video);
     play.addEventListener("click", () => { elegido = !video.paused; video.paused ? video.play() : video.pause(); });
@@ -379,7 +381,19 @@
 
   // ---------- Menú en celular y videos livianos ----------
   const top = document.querySelector(".top");
-  document.querySelector(".menu-btn")?.addEventListener("click", () => top.classList.toggle("abierto"));
+  const menuBtn = document.querySelector(".menu-btn");
+  menuBtn?.addEventListener("click", () => {
+    const abierto = top.classList.toggle("abierto");
+    menuBtn.setAttribute("aria-expanded", abierto);
+  });
+
+  // ---------- Contacto: contacto.html?motivo=compra|soporte|institucional resalta ese acceso ----------
+  const motivo = new URLSearchParams(location.search).get("motivo");
+  const elegidoMotivo = motivo && document.getElementById("motivo-" + motivo);
+  if (elegidoMotivo) {
+    elegidoMotivo.classList.add("destacado");
+    elegidoMotivo.scrollIntoView({ block: "center", behavior: "auto" });
+  }
   document.querySelectorAll(".yt[data-id]").forEach((b) => b.addEventListener("click", () => {
     const f = document.createElement("iframe");
     f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.id}?autoplay=1&rel=0`;
