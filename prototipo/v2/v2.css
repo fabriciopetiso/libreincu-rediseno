@@ -540,3 +540,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px soli
 .hoy.solo-titulo .hoy-grid { align-items: center; }
 .hoy.solo-titulo h1 { font-size: clamp(40px, 5.4vw, 76px); }
 .lead-proyecto { font: 400 clamp(22px, 2.5vw, 30px)/1.4 var(--serif); max-width: 40ch; margin: 0 0 56px; }
+
+/* Modelo 3D embebido (volteo de bandejas) */
+.medio.modelo-3d iframe { display: block; width: 100%; aspect-ratio: 4 / 5; min-height: 460px; border: 0; background: var(--surface); }
+.medio.modelo-3d figcaption { padding: 10px 14px; font-size: 14px; color: var(--muted, #666); }
