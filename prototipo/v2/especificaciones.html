@@ -35,7 +35,7 @@
     <div>
       <span class="kicker">Tecnología</span>
       <h1>Especificaciones técnicas</h1>
-      <p class="meta">2 secciones · 2 min de lectura</p>
+      <p class="meta">LibreIncu 150 v3 · 6 secciones · 3 min de lectura</p>
     </div>
   </div>
 </div>
@@ -44,7 +44,6 @@
   <aside class="lateral">
     <h4><a href="tecnologia.html">Tecnología</a></h4>
     <a href="especificaciones.html" aria-current="page">Especificaciones técnicas</a>
-    <a href="ecosistema.html">Ecosistema informático</a>
     <a href="app.html">LibrePollo - Aplicación</a>
     <a href="problemas.html">Solución de problemas</a>
     <a href="manual.html">Manual básico de incubadoras</a>
@@ -58,50 +57,73 @@
   </aside>
 
   <article class="prosa doc-especificaciones">
-<h2 id="hardware" data-capitulo="Hardware"><strong>Hardware</strong></h2>
-<p>La incubadora LibreIncu es el resultado de un cuidadoso proceso de diseño iterativo , buscando crear un dispositivo accesible, eficiente y adaptado a las necesidades específicas de la AFCI. Además, usa componentes disponibles en el mercado y fáciles de reemplazar. </p>
-<h3 id="especificaciones-tecnicas"><strong>Especificaciones técnicas</strong></h3>
+<p>Estas especificaciones corresponden a la <strong>LibreIncu 150 v3</strong>. Usa componentes disponibles en el mercado y fáciles de reemplazar, y todo su diseño está publicado.</p>
+<h2 id="medidas" data-capitulo="Medidas">Medidas y capacidad</h2>
 <ul>
-<li class="fila"><span class="k">Dimensiones:</span> 100 cm de altura, 50 cm de ancho y 50 cm de profundidad  </li>
-<li class="fila"><span class="k">Capacidad:</span> 150 huevos en tres bandejas de incubación, con 50 huevos de nacedora  </li>
-<li class="fila"><span class="k">Sistema de control térmico:</span> </li>
-<li>Resistencia calefactora de 200W ubicada en la base (la misma que una panchera industrial)  </li>
-<li>Sensor BME280 para monitoreo preciso de temperatura, humedad y presión  </li>
-<li>Ventilador de distribución de aire (modelo Turbina Cooler Extractor Fan)  </li>
-<li>Control de temperatura objetivo de promedio 37.8°C  </li>
-<li class="fila"><span class="k">Sistema de humidificación:</span> </li>
-<li>Microaspersor con sistema de carga automática de agua  </li>
-<li>Presión de trabajo de 3 bar  </li>
-<li>Bomba de nafta (tipo genérica automotor)  </li>
-<li>Control integrado con el sistema de temperatura  </li>
-<li class="fila"><span class="k">Sistema de rotación:</span> </li>
-<li>Motor de rotación ubicado en la parte superior  </li>
-<li>Sistema de cinta de tracción para movimiento de bandejas  </li>
-<li>Sensores Reed para detectar posiciones extremas (los de alarma)   </li>
-<li>Rotación automática programable  </li>
-<li class="fila"><span class="k">Control electrónico:</span> </li>
-<li>Microcontrolador ESP32 como cerebro del sistema  </li>
-<li>Conectividad WiFi para control remoto  </li>
-<li>Aplicación LibrePollo para Android  </li>
-<li>Interfaz para visualización de datos históricos en Grafana</li>
+<li class="fila"><span class="k">Tamaño exterior:</span> unos 100 cm de alto, 50 cm de ancho y 50 cm de profundidad</li>
+<li class="fila"><span class="k">Cámara interior:</span> 47 cm de ancho, 50 cm de profundidad y 97 cm de alto</li>
+<li class="fila"><span class="k">Capacidad:</span> 166 huevos en tres bandejas de 40 × 40 cm (una de 50 y dos de 58), más una bandeja nacedora en el piso de la cámara</li>
+<li class="fila"><span class="k">Mueble:</span> placas de MDF melamina blanco de 18 mm con perfiles de chapa galvanizada, burlete en la puerta y patas de goma</li>
 </ul>
-<p>El diseño físico incluye un circuito de convección forzada para una distribución uniforme del calor, con el aire caliente generado por la resistencia ascendiendo por detrás de las bandejas, acumulándose en el techo, y siendo forzado hacia abajo por el ventilador por la parte frontal.</p>
-<p>En las pruebas realizadas, LibreIncu ha logrado un índice de eclosión del 86%, comparable con las mejores marcas comerciales pero con un costo significativamente menor y adaptada específicamente a las necesidades de pequeños productores.</p>
-<h2 id="software" data-capitulo="Software"><strong>Software</strong></h2>
-<p>El ecosistema de software de LibreIncu está diseñado para facilitar el monitoreo remoto y control automático de la incubadora, ofreciendo una interfaz intuitiva y accesible para los usuarios.<img src="../assets/docs/especificaciones-0ec323e838.png" alt="" loading="lazy"></p>
-<p>Cada incubadora emite una red wifi cuyo nombre empieza con el nombre “incu-” seguida de un número. Un usuario que desee controlar su incubadora se puede conectar a ese wifi. Además cada incubadora se conecta a la red wifi para enviar datos por internet a un servidor.</p>
-<p><strong>Firmware de la incubadora</strong> </p>
-<p>El firmware de la incubadora, alojado en la carpeta /src/embedded del <a href="https://github.com/AlterMundi-MonitoreoyControl/Proyecto-Incubadora/tree/main/src/embedded#readme">repositorio</a> del proyecto, es el componente de software que corre directamente en el microcontrolador del sistema de control. Está desarrollado para gestionar de forma autónoma el funcionamiento de la incubadora, manteniendo condiciones ambientales óptimas para el desarrollo de los embriones.</p>
-<p>El firmware utiliza nodemcu y está escrito en lua, un lenguaje sencillo para propiciar la apropiación del software por parte de las comunidades. </p>
+<figure class="lamina"><img src="../assets/v3/interior.jpg" alt="Interior de la LibreIncu 150 v3: ventilador arriba, tres bandejas y deflector debajo" loading="lazy" style="width:min(100%,300px)"><figcaption>Interior del equipo: ventilador, bandejas y deflector.</figcaption></figure>
+<h2 id="temperatura" data-capitulo="Temperatura">Temperatura y aire</h2>
+<ul>
+<li class="fila"><span class="k">Resistencia:</span> plana, de 200 W a 220 V, apretada contra el fondo de una bandeja de aluminio en la base de la cámara</li>
+<li class="fila"><span class="k">Seguridad:</span> fusible térmico en serie con la resistencia, que corta a 175 °C sin depender del software</li>
+<li class="fila"><span class="k">Sensor:</span> BME280, que mide temperatura, humedad y presión</li>
+<li class="fila"><span class="k">Temperatura de trabajo:</span> 37,8 °C de fábrica, ajustable desde la app</li>
+<li class="fila"><span class="k">Ventilador:</span> turbina de 6" a 220 V con rulemán, en el techo de la cámara</li>
+<li class="fila"><span class="k">Deflector:</span> chapa de aluminio debajo de las bandejas que guía el aire</li>
+</ul>
+<p>El aire circula por convección forzada: el ventilador lo mueve desde el techo, el deflector lo guía por debajo de las bandejas y la resistencia lo calienta en la base, para que el calor se reparta de forma pareja.</p>
+<figure class="lamina"><img src="../assets/v3/corte-lateral.png" alt="Corte lateral del modelo: ventilador arriba, tres bandejas, deflector y fuente de calor en la base" loading="lazy" style="width:min(100%,280px)"><figcaption>Corte lateral del modelo, con el fondo a la derecha.</figcaption></figure>
+<h2 id="humedad" data-capitulo="Humedad">Humedad</h2>
+<ul>
+<li class="fila"><span class="k">Bomba y electroválvula:</span> de 12 V, montadas encima de la cámara en una caja estanca con desagote</li>
+<li class="fila"><span class="k">Aspersor:</span> boquilla de niebla de 6 mm que apunta a una chapa de impacto de aluminio, sobre la bandeja de agua caliente</li>
+<li class="fila"><span class="k">Carga de agua:</span> automática, desde la red de agua</li>
+<li class="fila"><span class="k">Control:</span> la placa enciende la bomba con un relé según la humedad que mide el sensor</li>
+</ul>
+<h2 id="rotacion" data-capitulo="Rotación">Rotación de las bandejas</h2>
+<ul>
+<li class="fila"><span class="k">Motor:</span> motorreductor de 12 V y 18 rpm</li>
+<li class="fila"><span class="k">Mecanismo:</span> el motor gira un tornillo (husillo) de 8 mm; un carro sube y baja por el tornillo y una varilla une las tres bandejas para que giren juntas</li>
+<li class="fila"><span class="k">Recorrido:</span> de unos −24° a +31°</li>
+<li class="fila"><span class="k">Sensores de posición:</span> dos sensores magnéticos (reed) marcan la posición de arriba y la de abajo, y el firmware detiene el motor</li>
+<li class="fila"><span class="k">Seguridad:</span> dos finales de carrera cortan el giro si falla un sensor</li>
+<li class="fila"><span class="k">Rotación:</span> automática y programable</li>
+</ul>
+<figure class="lamina"><img src="../assets/v3/rotacion-real.jpg" alt="Mecanismo de rotación del equipo real: acople, soportes, tornillo, carro, sensores reed y finales de carrera" loading="lazy" style="width:min(100%,300px)"><figcaption>Mecanismo de rotación del equipo real.</figcaption></figure>
+<h2 id="electronica" data-capitulo="Electrónica">Electrónica y tablero</h2>
+<ul>
+<li class="fila"><span class="k">Placa:</span> Olivia Control V2, con microcontrolador ESP32 y WiFi</li>
+<li class="fila"><span class="k">Resistencia:</span> la placa la maneja con una salida TRIAC</li>
+<li class="fila"><span class="k">Motor:</span> puente H BTS7960</li>
+<li class="fila"><span class="k">Bomba:</span> módulo de relés de 5 V</li>
+<li class="fila"><span class="k">Alimentación:</span> fuente de 220 V a 12 V y reductor de 12 V a 5 V</li>
+<li class="fila"><span class="k">Protecciones:</span> disyuntor diferencial y llaves termomagnéticas, en una caja estanca</li>
+<li class="fila"><span class="k">Luz:</span> reflector LED interior con su interruptor</li>
+</ul>
+<figure class="lamina"><img src="../assets/v3/tablero.jpg" alt="Tablero eléctrico del equipo real: protecciones, fuente, placa Olivia y módulos" loading="lazy" style="width:min(100%,420px)"><figcaption>Tablero eléctrico del equipo.</figcaption></figure>
+<p>En las pruebas realizadas, LibreIncu logró un índice de eclosión del 86 %.</p>
+<h2 id="software" data-capitulo="Software">Software</h2>
+<p>Cada incubadora emite su propia red WiFi, cuyo nombre empieza con "incu-" seguido de un número. Desde el celular te conectás a esa red y la manejás con la app LibrePollo. Si además la conectás a una red WiFi con internet, envía sus datos a un servidor: te llegan los avisos al celular y queda el historial de temperatura y humedad en Grafana.</p>
+<p><strong>Firmware de la incubadora</strong></p>
+<p>El firmware corre en el microcontrolador y maneja sola la incubadora, manteniendo las condiciones para el desarrollo de los embriones. Usa NodeMCU y está escrito en Lua, un lenguaje sencillo para que las comunidades puedan apropiarse del software. Está en la carpeta /src/embedded del <a href="https://github.com/AlterMundi-MonitoreoyControl/Proyecto-Incubadora/tree/main/src/embedded#readme">repositorio</a> del proyecto.</p>
+<p class="nota-fuente">Fuente técnica: <a href="https://pablomonte.github.io/LibreIncu-150/" target="_blank" rel="noopener">manual de fabricación y montaje de la LibreIncu 150 v3</a>, de Pablo Monte. Las imágenes de esta página salen de ese manual.</p>
     <nav class="pager" data-m="sube">
       <a href="index.html"><small>← Anterior</small><strong>Inicio</strong></a>
-      <a href="ecosistema.html"><small>Siguiente →</small><strong>Ecosistema informático</strong></a>
+      <a href="app.html"><small>Siguiente →</small><strong>LibrePollo - Aplicación</strong></a>
     </nav>
   </article>
 
   <nav class="toc" aria-label="En esta página">
     <h4>En esta página</h4>
-    <a href="#hardware">Hardware</a>
+    <a href="#medidas">Medidas y capacidad</a>
+    <a href="#temperatura">Temperatura y aire</a>
+    <a href="#humedad">Humedad</a>
+    <a href="#rotacion">Rotación</a>
+    <a href="#electronica">Electrónica</a>
     <a href="#software">Software</a>
   </nav>
 </div>

@@ -6,6 +6,9 @@ La propuesta vigente está en `docs/PROPUESTA.md` y el plan por fases en `docs/R
 
 - Nunca hacer commit ni push sin el OK explícito de Fabricio después de revisar en local (http://127.0.0.1:8766/v2/, servidor: `python3 herramientas/servidor.py 8766 prototipo`).
 - Nada se sube al repo de AlterMundi.
+- Fuente técnica vigente: la LibreIncu 150 v3 de Pablo Monte (https://pablomonte.github.io/LibreIncu-150/). Todo lo técnico se actualiza a esa versión y se toma como válida; si algo genera dudas, se consulta con Fabricio.
+- Decisiones ya tomadas sobre la v3: capacidad 166 huevos en las 3 bandejas (1 de 50 y 2 de 58), más la nacedora; temperatura de fábrica 37,8 °C; la humedad se carga sola desde la red de agua; el firmware sigue siendo NodeMCU/Lua; puente H BTS7960; licencias CERN OHL / LGPL 2.1 / CC BY 4.0; se menciona como "v3".
+- `especificaciones.html`, `app.html` y `problemas.html` pasaron a ser páginas a mano (`A_MANO`) para poder actualizarlas a la v3; `verificar_textos.py` ya no las compara con el original.
 - `contenido-original/` no se modifica. Las páginas de documentación se generan con `herramientas/generar.py` y se controlan con `herramientas/verificar_textos.py`, que tiene que pasar sin errores.
 - `generar.py` es la única fuente del menú y del pie: también los reescribe en las páginas hechas a mano (`A_MANO`). No editar el `<header>` ni el `<footer>` a mano.
 - El sitio es autosuficiente: nada de CDNs, fuentes ni scripts externos (lo único externo es el reproductor de YouTube, que se carga al tocar un video).

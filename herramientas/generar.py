@@ -21,10 +21,9 @@ IMAGENES = RAIZ / "prototipo" / "assets" / "docs"
 
 # (archivo de salida, título del menú, grupo, Markdown de origen o None si la página es a mano, foto de cabecera)
 PAGINAS = [
-    ("especificaciones.html", "Especificaciones técnicas", "Tecnología", "Especificaciones_técnicas.md", "incubadoras.jpg"),
-    ("ecosistema.html", "Ecosistema informático", "Tecnología", "Ecosistema informático para la agricultura familiar.md", None),
-    ("app.html", "LibrePollo - Aplicación", "Tecnología", "LibrePollo - Aplicación.md", "incu-celu.jpg"),
-    ("problemas.html", "Solución de problemas", "Tecnología", "solucion de problemas.md", "incubadora-carga.jpg"),
+    ("especificaciones.html", "Especificaciones técnicas", "Tecnología", None, None),
+    ("app.html", "LibrePollo - Aplicación", "Tecnología", None, None),
+    ("problemas.html", "Solución de problemas", "Tecnología", None, None),
     ("manual.html", "Manual básico de incubadoras", "Tecnología", None, None),
     ("huevos.html", "Huevos Fértiles e Incubación", "Producción", "Huevos Fértiles e Incubación.md", "huevos.jpg"),
     ("buenas-practicas.html", "Preguntas para Buenas Prácticas", "Producción", "Preguntas para las Buenas Prácticas de Incubación.md", "pollitos-negros.jpg"),
@@ -33,7 +32,9 @@ PAGINAS = [
 ]
 
 # Landings y portada: hechas a mano, pero el menú, el pie y los accesos cruzados salen de acá
-A_MANO = ["index.html", "incubadora.html", "proyecto.html", "tecnologia.html", "produccion.html", "manual.html"]
+# especificaciones, app y problemas: actualizadas a mano a la v3 de Pablo Monte (ver CLAUDE.md)
+A_MANO = ["index.html", "incubadora.html", "proyecto.html", "tecnologia.html", "produccion.html", "manual.html",
+          "especificaciones.html", "app.html", "problemas.html"]
 
 # Las 4 puertas de entrada: (archivo, nombre en el menú, título de la tarjeta, una línea)
 LANDINGS = [
@@ -48,7 +49,7 @@ SECCION = {"proyecto.html": "proyecto.html", "prensa.html": "proyecto.html",
            "incubadora.html": "incubadora.html",
            "produccion.html": "produccion.html", "huevos.html": "produccion.html", "buenas-practicas.html": "produccion.html",
            "contacto.html": "contacto.html"}
-for _a in ["tecnologia.html", "especificaciones.html", "ecosistema.html", "app.html", "problemas.html", "manual.html"]:
+for _a in ["tecnologia.html", "especificaciones.html", "app.html", "problemas.html", "manual.html"]:
     SECCION[_a] = "tecnologia.html"
 
 # Video en loop arriba de todo de la página (sin sonido)
@@ -151,9 +152,6 @@ def limpiar(texto, slug):
             return f"\n{nivel} {t}\n"
         texto = re.sub(r"^\s*🐣\s*(.+)$", rotulo, texto, flags=re.M)
         texto = re.sub(r"^MANEJO DE REPRODUCTORES(.*)$", r"## MANEJO DE REPRODUCTORES\1", texto, flags=re.M)
-    if slug == "ecosistema":
-        # Renglones sueltos que el original escribe uno debajo del otro → lista (mismo texto)
-        texto = re.sub(r"^((?:Innovaciones|Caracterización|Curaduría|Definición|Interfaces) .+)$", r"- \1", texto, flags=re.M)
     # Renglones que empiezan con un emoji o con "•" → ítems con el ícono de la marca que corresponde
     lineas = []
     for l in texto.split("\n"):

@@ -50,7 +50,7 @@ Objetivo: pasar a la arquitectura de la propuesta: portada + 4 landings.
    Inicio(logo) | Incubadora | Proyecto | Tecnología | Producción | Contacto
 2. Creá 4 páginas nuevas hechas a mano (no generadas) con el mismo header/footer: incubadora.html, proyecto.html, tecnologia.html, produccion.html. Por ahora con hero (título + bajada) y bloques vacíos marcados .pendiente según la estructura de la propuesta.
 3. Reagrupá las páginas de documentación en generar.py:
-   - Tecnología: especificaciones, ecosistema, app, problemas, manual
+   - Tecnología: especificaciones, app, problemas, manual
    - Producción: huevos, buenas-practicas
    - Comunidad/Proyecto: prensa
    - contacto queda como está

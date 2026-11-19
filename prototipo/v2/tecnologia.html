@@ -40,7 +40,7 @@
       <p class="l-que-es">LibreIncu: incubadora libre para la producción avícola familiar</p>
       <span class="kicker">Tecnología libre</span>
       <h1>Hardware y software libres</h1>
-      <p class="l-bajada">Todo el desarrollo está publicado para que cualquier comunidad pueda entenderlo, repararlo, adaptarlo y replicarlo.</p>
+      <p class="l-bajada">LibreIncu 150 v3: todo el desarrollo está publicado para que cualquier comunidad pueda entenderlo, repararlo, adaptarlo y replicarlo.</p>
       <div class="acciones">
         <a class="boton" href="#documentacion">Ver la documentación</a>
         <a class="boton secundario" href="#codigo">Código fuente</a>
@@ -50,16 +50,16 @@
   </div>
 </section>
 
-<section class="seccion" data-capitulo="Arquitectura">
+<section class="seccion" data-capitulo="Conectividad">
   <div class="wrap dos-col">
     <div class="texto-corto">
-      <span class="kicker">Arquitectura tecnológica</span>
-      <h2 style="font-size:clamp(30px,3.8vw,50px);margin:16px 0 14px">Cómo se conecta todo</h2>
-      <p>Cada incubadora emite su propia red WiFi, que empieza con "incu-" seguida de un número: desde el celular te conectás y la controlás con la app LibrePollo.</p>
-      <p>Si además la conectás a una red con internet, envía sus datos a un servidor: así llegan los avisos al celular y queda el historial en Grafana.</p>
-      <p>La incubadora es parte de un ecosistema más amplio para zonas rurales: nodos de sensores por LoRa o WiFi, un gateway comunitario LibreRouter y un servidor MQTT.</p>
+      <span class="kicker">Conexión WiFi y registro de datos</span>
+      <h2 style="font-size:clamp(30px,3.8vw,50px);margin:16px 0 14px">Conectada por WiFi, con su historial en Grafana</h2>
+      <p>Cada incubadora emite su propia red WiFi, que empieza con "incu-" seguida de un número: desde el celular te conectás y la controlás con la app LibrePollo, sin cables y sin necesidad de internet.</p>
+      <p>Si además la conectás a una red WiFi con internet, envía sus datos a un servidor: te llegan los avisos al celular y queda un registro histórico de temperatura y humedad.</p>
+      <p>Ese historial se consulta en Grafana, con gráficos de cada sensor a lo largo del tiempo: sirve para ver cómo se comportó cada incubación y comparar campañas.</p>
     </div>
-    <figure class="medio"><img src="../assets/diagrama.png" alt="Diagrama del ecosistema: nodos de sensores MeshStatic por LoRa y ESP32 por WiFi conectados a un gateway LibreRouter, que envía por MQTT a un broker en la nube; de ahí salen Grafana, la app Android, Odoo y un servidor de recomendaciones" loading="lazy"><figcaption>Diagrama general del ecosistema informático.</figcaption></figure>
+    <figure class="medio"><img src="../assets/grafana-historial.jpg" alt="Panel de Grafana de una incubadora: temperatura actual de 37,4 °C, humedad de 71 % y gráficos del historial de temperatura y humedad de los últimos minutos" loading="lazy"><figcaption>Panel de Grafana con la temperatura y la humedad de una incubadora en tiempo real y su historial.</figcaption></figure>
   </div>
 </section>
 
@@ -70,8 +70,8 @@
       <h2>Electrónica, sensores, firmware y app</h2>
     </div>
     <div class="tarjetas cuatro">
-      <a class="tarjeta" href="especificaciones.html"><span class="rotulo-t">Hardware y electrónica</span><h3>Placa de control con ESP32</h3><p>Un microcontrolador ESP32 coordina la resistencia, el ventilador, la bomba y el motor de rotación, y da la conectividad WiFi.</p><span class="ir">Especificaciones técnicas</span></a>
-      <a class="tarjeta" href="manual.html"><span class="rotulo-t">Componentes y sensores</span><h3>Lo que mide y lo que actúa</h3><p>Sensor BME280 (temperatura, humedad y presión), sensores Reed de posición, ventilador, resistencia de 200 W y bomba con microaspersor.</p><span class="ir">Manual básico</span></a>
+      <a class="tarjeta" href="especificaciones.html"><span class="rotulo-t">Hardware y electrónica</span><h3>Placa Olivia Control con ESP32</h3><p>La placa Olivia Control, con un microcontrolador ESP32, coordina la resistencia, la bomba y el motor de rotación, y da la conectividad WiFi.</p><span class="ir">Especificaciones técnicas</span></a>
+      <a class="tarjeta" href="manual.html"><span class="rotulo-t">Componentes y sensores</span><h3>Lo que mide y lo que actúa</h3><p>Sensor BME280 (temperatura, humedad y presión), sensores reed y finales de carrera, motor con tornillo, ventilador, resistencia de 200 W con fusible térmico, y bomba con aspersor de niebla.</p><span class="ir">Manual básico</span></a>
       <a class="tarjeta" href="especificaciones.html#software"><span class="rotulo-t">Firmware</span><h3>NodeMCU y Lua</h3><p>Corre en el microcontrolador y maneja sola la incubadora. Está escrito en Lua, un lenguaje sencillo para que las comunidades puedan apropiarse del software.</p><span class="ir">Ver el firmware</span></a>
       <a class="tarjeta" href="app.html"><span class="rotulo-t">Aplicación</span><h3>LibrePollo</h3><p>App para Android: estado de la incubadora, ajuste de parámetros, configuración WiFi y notificaciones.</p><span class="ir">Manual de la app</span></a>
     </div>
@@ -84,11 +84,10 @@
       <span class="kicker">Manuales y documentación</span>
       <h2>Todo lo que hace falta para usarla y repararla</h2>
     </div>
-    <div class="tarjetas cuatro">
+    <div class="tarjetas">
       <a class="tarjeta" href="especificaciones.html"><h3>Especificaciones técnicas</h3><p>Dimensiones, sistemas de temperatura, humedad, rotación y control, y el software.</p><span class="ir">Leer</span></a>
       <a class="tarjeta" href="manual.html"><h3>Manual básico de incubadoras</h3><p>Componentes, instalación, primer encendido y mantenimiento.</p><span class="ir">Leer</span></a>
       <a class="tarjeta" href="problemas.html"><h3>Solución de problemas</h3><p>Diagnóstico paso a paso, con multímetro, de humedad, temperatura y rotación.</p><span class="ir">Leer</span></a>
-      <a class="tarjeta" href="ecosistema.html"><h3>Ecosistema informático</h3><p>Arquitectura IoT para zonas rurales con Libremesh, LoRa y MQTT.</p><span class="ir">Leer</span></a>
     </div>
   </div>
 </section>
