@@ -403,4 +403,51 @@
     f.title = b.getAttribute("aria-label") || "Video";
     b.replaceChildren(f);
   }, { once: true }));
+
+  // ---------- Incubadora: galería de producto, barra de compra y pestañas ----------
+  const galeria = document.querySelector(".prod-galeria");
+  if (galeria) {
+    const items = [...galeria.querySelectorAll(".prod-item")];
+    const minis = [...galeria.querySelectorAll(".prod-mini")];
+    const cuenta = galeria.querySelector(".prod-cuenta b");
+    let actual = 0;
+    const mostrar = (i) => {
+      actual = (i + items.length) % items.length;
+      items.forEach((it, k) => {
+        const on = k === actual;
+        it.classList.toggle("activo", on);
+        const v = it.querySelector("video"), f = it.querySelector("iframe");
+        if (on && f && !f.src) f.src = f.dataset.src;
+        if (v) { if (on) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause(); }
+      });
+      minis.forEach((m, k) => m.classList.toggle("activo", k === actual));
+      if (cuenta) cuenta.textContent = actual + 1;
+    };
+    minis.forEach((m, k) => m.addEventListener("click", () => mostrar(k)));
+    galeria.querySelector(".prod-flecha.ant")?.addEventListener("click", () => mostrar(actual - 1));
+    galeria.querySelector(".prod-flecha.sig")?.addEventListener("click", () => mostrar(actual + 1));
+  }
+  const compra = document.querySelector(".compra"), barra = document.querySelector(".barra-compra");
+  if (compra && barra) {
+    const fin = document.querySelector(".cierre-compra");
+    let enCompra = true, enFin = false;
+    const pintar = () => {
+      const ver = !enCompra && !enFin;
+      barra.classList.toggle("visible", ver);
+      barra.setAttribute("aria-hidden", !ver);
+      barra.querySelector("a").tabIndex = ver ? 0 : -1;
+    };
+    new IntersectionObserver(([e]) => { enCompra = e.isIntersecting; pintar(); }).observe(compra.querySelector(".compra-boton"));
+    if (fin) new IntersectionObserver(([e]) => { enFin = e.isIntersecting; pintar(); }).observe(fin);
+  }
+  document.querySelectorAll(".pestanas").forEach((p) => {
+    const tabs = [...p.querySelectorAll('[role="tab"]')];
+    tabs.forEach((t) => t.addEventListener("click", () => {
+      tabs.forEach((o) => {
+        const on = o === t;
+        o.setAttribute("aria-selected", on);
+        document.getElementById(o.getAttribute("aria-controls")).hidden = !on;
+      });
+    }));
+  });
 })();

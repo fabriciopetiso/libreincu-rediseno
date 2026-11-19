@@ -34,68 +34,140 @@
   </div>
 </header>
 
-<section class="l-hero" data-capitulo="La incubadora">
-  <div class="wrap">
-    <div>
-      <p class="l-que-es">LibreIncu: incubadora libre para la producción avícola familiar</p>
-      <span class="kicker">La incubadora</span>
-      <h1>LibreIncu 150</h1>
-      <p class="l-bajada">Incubá 166 huevos con temperatura, humedad y rotación automáticas, y seguí todo desde el celular.</p>
-      <div class="acciones">
-        <a class="boton" href="#pedila">Comprá la tuya</a>
-        <a class="boton secundario" href="#como-funciona">Cómo funciona</a>
+<section class="producto" id="pedila" data-capitulo="La incubadora">
+  <span id="presupuesto"></span>
+  <div class="wrap producto-grid">
+    <div class="prod-galeria" aria-label="Fotos de la incubadora">
+      <div class="prod-visor">
+        <figure class="prod-item activo" data-i="0"><img src="../assets/galeria/01-frente.jpg" alt="LibreIncu 150 cerrada, en uso en la casa de una familia productora"></figure>
+        <figure class="prod-item" data-i="1"><img src="../assets/galeria/02-lateral-cto.jpg" alt="Lateral con el sello de CTO Traslasierra y la leyenda Tecnología libre para la soberanía alimentaria" loading="lazy"></figure>
+        <figure class="prod-item" data-i="2"><img src="../assets/galeria/03-interior.jpg" alt="Interior: ventilador arriba, tres bandejas y deflector debajo" loading="lazy"></figure>
+        <figure class="prod-item" data-i="3"><img src="../assets/galeria/04-bandejas.jpg" alt="Bandejas cargadas de huevos dentro de la incubadora" loading="lazy"></figure>
+        <figure class="prod-item" data-i="4"><img src="../assets/galeria/07-cargando.jpg" alt="Productor cargando huevos en las bandejas" loading="lazy"></figure>
+        <figure class="prod-item" data-i="5"><img src="../assets/galeria/05-nacimiento.jpg" alt="Bandeja nacedora con pollitos recién nacidos" loading="lazy"></figure>
+        <figure class="prod-item" data-i="6"><img src="../assets/galeria/06-tablero.jpg" alt="Tablero de control con la placa, las protecciones y la fuente" loading="lazy"></figure>
+        <figure class="prod-item" data-i="7"><video data-src="../assets/incubadora-recorrido.mp4" poster="../assets/incubadora-recorrido.jpg" muted loop playsinline preload="none" aria-label="Recorrido por el interior de la incubadora"></video></figure>
+        <button type="button" class="prod-flecha ant" aria-label="Foto anterior">‹</button>
+        <button type="button" class="prod-flecha sig" aria-label="Foto siguiente">›</button>
+        <span class="prod-cuenta"><b>1</b> / 8</span>
+      </div>
+      <div class="prod-minis">
+        <button type="button" class="prod-mini activo" data-i="0" aria-label="Ver foto 1: LibreIncu 150 cerrada, en uso en la casa de una familia productora"><img src="../assets/galeria/t-01-frente.jpg" alt=""></button>
+        <button type="button" class="prod-mini" data-i="1" aria-label="Ver foto 2: Lateral con el sello de CTO Traslasierra y la leyenda Tecnología libre para la soberanía alimentaria"><img src="../assets/galeria/t-02-lateral-cto.jpg" alt=""></button>
+        <button type="button" class="prod-mini" data-i="2" aria-label="Ver foto 3: Interior: ventilador arriba, tres bandejas y deflector debajo"><img src="../assets/galeria/t-03-interior.jpg" alt=""></button>
+        <button type="button" class="prod-mini" data-i="3" aria-label="Ver foto 4: Bandejas cargadas de huevos dentro de la incubadora"><img src="../assets/galeria/t-04-bandejas.jpg" alt=""></button>
+        <button type="button" class="prod-mini" data-i="4" aria-label="Ver foto 5: Productor cargando huevos en las bandejas"><img src="../assets/galeria/t-07-cargando.jpg" alt=""></button>
+        <button type="button" class="prod-mini" data-i="5" aria-label="Ver foto 6: Bandeja nacedora con pollitos recién nacidos"><img src="../assets/galeria/t-05-nacimiento.jpg" alt=""></button>
+        <button type="button" class="prod-mini" data-i="6" aria-label="Ver foto 7: Tablero de control con la placa, las protecciones y la fuente"><img src="../assets/galeria/t-06-tablero.jpg" alt=""></button>
+        <button type="button" class="prod-mini es-video" data-i="7" aria-label="Ver el video del recorrido"><img src="../assets/incubadora-recorrido.jpg" alt=""></button>
       </div>
     </div>
-    <figure class="l-hero-medio cuadrado"><video src="../assets/incubadora-recorrido.mp4" poster="../assets/incubadora-recorrido.jpg" autoplay muted loop playsinline preload="auto" aria-label="Recorrido por el interior de la incubadora LibreIncu"></video></figure>
-  </div>
-</section>
 
-<section class="seccion" id="ficha" data-capitulo="Ficha">
-  <div class="wrap">
-    <div class="seccion-cab">
-      <span class="kicker">De un vistazo</span>
-      <h2>Lo que hace, en ocho datos</h2>
-      <p>La LibreIncu 150 v3 controla sola la temperatura, la humedad y la rotación de los huevos. Se maneja desde el celular y está hecha con hardware y software libres.</p>
-    </div>
-    <dl class="ficha-datos">
-      <div><dt>Capacidad</dt><dd>166 huevos</dd><small>3 bandejas (una de 50 y dos de 58) y una bandeja nacedora</small></div>
-      <div><dt>Tamaño</dt><dd>100 × 50 × 50 cm</dd><small>alto, ancho y profundidad</small></div>
-      <div><dt>Temperatura</dt><dd>37,8 °C</dd><small>resistencia de 200 W y ventilador</small></div>
-      <div><dt>Humedad</dt><dd>Automática</dd><small>bomba, aspersor y carga de agua automática</small></div>
-      <div><dt>Rotación</dt><dd>Automática</dd><small>motor y tornillo, programable</small></div>
-      <div><dt>Control</dt><dd>ESP32 + WiFi</dd><small>app LibrePollo y datos en Grafana</small></div>
-      <div><dt>Eclosión</dt><dd>86 %</dd><small>en las pruebas realizadas</small></div>
-      <div><dt>Repuestos</dt><dd>Del mercado</dd><small>fáciles de conseguir y reemplazar</small></div>
-    </dl>
-  </div>
-</section>
-
-<section class="seccion tono" data-capitulo="Para quién">
-  <div class="wrap">
-    <div class="seccion-cab">
-      <span class="kicker">Para quién es</span>
-      <h2>Pensada para la escala de la producción familiar</h2>
-      <p>Las incubadoras comerciales suelen ser inaccesibles por su costo o están diseñadas para hobbistas. LibreIncu está pensada para quienes producen.</p>
-    </div>
-    <div class="tarjetas">
-      <div class="tarjeta icono" style="--ic: var(--i-gallina)"><h3>Familias productoras</h3><p>Para producir sus propios pollitos con la genética que elijan, sin depender de comprar el pollito bebé.</p></div>
-      <div class="tarjeta icono" style="--ic: var(--i-nace)"><h3>Cooperativas</h3><p>Para organizar en el territorio la reproducción de sus propias aves.</p></div>
-      <div class="tarjeta icono" style="--ic: var(--i-pollito)"><h3>Organizaciones</h3><p>Para acompañar proyectos de producción avícola familiar y agroecológica.</p></div>
+    <div class="compra">
+      <p class="l-que-es">LibreIncu: incubadora libre para la producción avícola familiar</p>
+      <h1>LibreIncu 150</h1>
+      <p class="modelo">Modelo v3 · Incubadora automática para huevos de gallina</p>
+      <p class="compra-bajada">Incubá 166 huevos con temperatura, humedad y rotación automáticas, y seguí todo desde el celular.</p>
+      <ul class="compra-claves">
+        <li><b>166 huevos</b> en 3 bandejas, más bandeja nacedora</li>
+        <li><b>Todo automático:</b> temperatura, humedad y rotación</li>
+        <li><b>App LibrePollo:</b> monitoreo y avisos en el celular</li>
+        <li><b>86 % de eclosión</b> en las pruebas realizadas</li>
+      </ul>
+      <div class="compra-precio">
+        <span>Precio de venta</span>
+        <strong class="pendiente">Precio de venta (completar)</strong>
+      </div>
+      <a class="boton wa compra-boton" href="https://wa.me/5493517350189?text=Hola%2C%20quiero%20pedir%20una%20incubadora%20LibreIncu%20150" target="_blank" rel="noopener">Comprala por WhatsApp</a>
+      <p class="compra-mail">o escribinos a <a href="mailto:libreincu@gmail.com?subject=Quiero%20una%20LibreIncu%20150">libreincu@gmail.com</a> · el 3517350189 es solo para WhatsApp</p>
+      <ul class="sellos">
+        <li style="--ic: var(--i-huevo)">Hardware y software libres</li>
+        <li style="--ic: var(--i-si)">Repuestos del mercado</li>
+        <li style="--ic: var(--i-gallina)">Fabricada en la ruralidad</li>
+      </ul>
+      <div class="compra-envio pendiente"><p><b>Envío y entrega:</b> plazo y zona de envío. <b>Garantía:</b> quién la da, qué cubre y por cuánto tiempo. Quién fabrica, vende y factura.</p></div>
     </div>
   </div>
 </section>
 
-<section class="seccion" data-capitulo="Ventajas">
+<div class="barra-compra" aria-hidden="true">
+  <div class="wrap">
+    <span><b>LibreIncu 150</b> · 166 huevos · todo automático</span>
+    <a class="boton wa" href="https://wa.me/5493517350189?text=Hola%2C%20quiero%20pedir%20una%20incubadora%20LibreIncu%20150" target="_blank" rel="noopener" tabindex="-1">Comprar</a>
+  </div>
+</div>
+
+<section class="seccion" id="medidas" data-capitulo="Medidas">
   <div class="wrap">
     <div class="seccion-cab">
-      <span class="kicker">Por qué LibreIncu</span>
-      <h2>Lo que la hace distinta</h2>
+      <span class="kicker">Medidas</span>
+      <h2>Medidas de la incubadora</h2>
     </div>
-    <div class="tarjetas cuatro">
-      <div class="tarjeta"><span class="rotulo-t">Libre</span><h3>Hardware y software libres</h3><p>Planos, electrónica, firmware y app están publicados: se puede entender, reparar y adaptar.</p></div>
-      <div class="tarjeta"><span class="rotulo-t">Repuestos</span><h3>Componentes del mercado</h3><p>Usa piezas disponibles en el mercado y fáciles de reemplazar.</p></div>
-      <div class="tarjeta"><span class="rotulo-t">Control</span><h3>Desde el celular</h3><p>Con la app LibrePollo ves y ajustás temperatura, humedad y rotación en cualquier momento.</p></div>
-      <div class="tarjeta"><span class="rotulo-t">Territorio</span><h3>Fabricada en la ruralidad</h3><p>Se fabrica en el territorio, cerca de quienes la usan.</p></div>
+    <div class="medidas">
+          <svg class="plano" viewBox="0 0 300 380" role="img" aria-label="Dibujo de la incubadora con sus medidas: unos 100 cm de alto, 50 de ancho y 50 de profundidad">
+            <rect x="70" y="30" width="140" height="290" rx="6" fill="var(--surface)" stroke="var(--tinta)" stroke-width="2.5"/>
+            <rect x="84" y="46" width="112" height="258" rx="3" fill="none" stroke="var(--muted)" stroke-width="1.4" stroke-dasharray="5 4"/>
+            <line x1="96" y1="110" x2="184" y2="110" stroke="var(--sec)" stroke-width="3"/>
+            <line x1="96" y1="150" x2="184" y2="150" stroke="var(--sec)" stroke-width="3"/>
+            <line x1="96" y1="190" x2="184" y2="190" stroke="var(--sec)" stroke-width="3"/>
+            <rect x="100" y="280" width="80" height="12" rx="2" fill="var(--yema)"/>
+            <circle cx="140" cy="70" r="14" fill="none" stroke="var(--tinta)" stroke-width="2"/>
+            <rect x="78" y="320" width="14" height="10" fill="var(--tinta)"/><rect x="188" y="320" width="14" height="10" fill="var(--tinta)"/>
+            <line x1="70" y1="352" x2="210" y2="352" stroke="var(--tinta)" stroke-width="1.2"/>
+            <line x1="70" y1="346" x2="70" y2="358" stroke="var(--tinta)"/><line x1="210" y1="346" x2="210" y2="358" stroke="var(--tinta)"/>
+            <text x="140" y="372" text-anchor="middle" font-size="14" fill="var(--text)" font-family="var(--sans)">≈ 50 cm</text>
+            <line x1="40" y1="30" x2="40" y2="330" stroke="var(--tinta)" stroke-width="1.2"/>
+            <line x1="34" y1="30" x2="46" y2="30" stroke="var(--tinta)"/><line x1="34" y1="330" x2="46" y2="330" stroke="var(--tinta)"/>
+            <text x="30" y="185" text-anchor="middle" font-size="14" fill="var(--text)" font-family="var(--sans)" transform="rotate(-90 30 185)">≈ 100 cm</text>
+            <text x="248" y="114" font-size="11" fill="var(--muted)" font-family="var(--sans)">bandejas</text><line x1="186" y1="110" x2="244" y2="110" stroke="var(--muted)" stroke-width=".8"/>
+            <text x="248" y="290" font-size="11" fill="var(--muted)" font-family="var(--sans)">nacedora</text><line x1="182" y1="286" x2="244" y2="286" stroke="var(--muted)" stroke-width=".8"/>
+            <text x="248" y="74" font-size="11" fill="var(--muted)" font-family="var(--sans)">ventilador</text><line x1="156" y1="70" x2="244" y2="70" stroke="var(--muted)" stroke-width=".8"/>
+          </svg>
+          <div>
+            <dl class="tabla-tecnica">
+              <div><dt>Exterior</dt><dd>unos 100 cm de alto, 50 de ancho y 50 de profundidad</dd></div>
+              <div><dt>Cámara interior</dt><dd>47 cm de ancho, 50 de profundidad y 97 de alto</dd></div>
+              <div><dt>Bandejas</dt><dd>3, de 40 × 40 cm (una de 50 huevos y dos de 58)</dd></div>
+              <div><dt>Nacedora</dt><dd>bandeja en el piso de la cámara</dd></div>
+            </dl>
+            <h3 class="sub-pestana">Para instalarla necesitás</h3>
+            <ul class="lista-simple">
+              <li>Un lugar ventilado pero sin corrientes de aire</li>
+              <li>Conexión de agua de red, segura y sin pérdidas</li>
+              <li>Un tomacorriente de 220 V cerca</li>
+              <li>En lo posible, señal WiFi y el celular al alcance</li>
+            </ul>
+          </div>
+        </div>
+  </div>
+</section>
+
+<section class="seccion tono" id="volteo" data-capitulo="Por dentro">
+  <div class="wrap dos-col">
+    <div class="texto-corto">
+      <span class="kicker">Por dentro</span>
+      <h2 style="font-size:clamp(30px,3.8vw,50px);margin:16px 0 14px">Así se ve por dentro</h2>
+      <p>Arriba, un ventilador mueve el aire caliente para que la temperatura sea pareja en toda la cámara. En el medio están las tres bandejas con los huevos: un motor las inclina hacia un lado y hacia el otro, todas juntas, para dar vuelta los huevos como lo haría la gallina. Abajo queda la bandeja nacedora, donde nacen los pollitos.</p>
+      <p>Arrastrá el modelo para verlo desde cualquier ángulo.</p>
+    </div>
+    <figure class="medio modelo-3d"><iframe src="../assets/rotacion-bandejas.html" loading="lazy" title="Modelo 3D interactivo del volteo de bandejas de la LibreIncu 150"></iframe><figcaption>Modelo 3D del volteo de bandejas. Modelo de Pablo Monte.</figcaption></figure>
+  </div>
+</section>
+
+<section class="seccion" data-capitulo="Destacados">
+  <div class="wrap">
+    <div class="seccion-cab">
+      <span class="kicker">Destacados</span>
+      <h2>Controla sola todo lo que importa</h2>
+      <p>La LibreIncu 150 v3 mantiene la temperatura, la humedad y la rotación de los huevos, y te avisa al celular si algo se sale de lo esperado.</p>
+    </div>
+    <div class="destacados">
+      <div><span class="d-dato">166</span><h3>huevos por carga</h3><p>En tres bandejas (una de 50 y dos de 58), más una bandeja nacedora.</p></div>
+      <div><span class="d-dato">37,8 °C</span><h3>temperatura pareja</h3><p>Resistencia de 200 W, ventilador y deflector que reparten el calor en toda la cámara.</p></div>
+      <div><span class="d-dato">Auto</span><h3>humedad</h3><p>Se carga sola desde la red de agua y un aspersor de niebla mantiene la humedad.</p></div>
+      <div><span class="d-dato">Auto</span><h3>rotación</h3><p>Un motor con tornillo gira las tres bandejas juntas, con sensores y topes de seguridad.</p></div>
+      <div><span class="d-dato">WiFi</span><h3>control desde el celular</h3><p>Con la app LibrePollo ves y ajustás los valores, y con internet guardás el historial en Grafana.</p></div>
+      <div><span class="d-dato">86 %</span><h3>de eclosión</h3><p>En las pruebas realizadas.</p></div>
     </div>
   </div>
 </section>
@@ -111,45 +183,98 @@
       <li><h3>Seguís todo desde la app</h3><p>Te conectás a la red WiFi de la incubadora y desde LibrePollo ves los valores, los cambiás y recibís avisos.</p></li>
       <li><h3>Nacen los pollitos</h3><p>Al final del ciclo los huevos pasan a la bandeja nacedora, en el piso de la cámara.</p></li>
     </ol>
-    <div class="dos-col" style="margin-top:48px">
-      <figure class="medio" style="max-width:340px;justify-self:center"><video src="../assets/app-librepollo.mp4" poster="../assets/app-librepollo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Demostración de la app LibrePollo"></video></figure>
-      <div class="texto-corto">
-        <h3 style="font-size:28px">La app LibrePollo</h3>
-        <p>Muestra la temperatura y la humedad dentro de la incubadora, permite modificar esos valores y avisa al celular si algo se sale de lo esperado.</p>
-        <div class="acciones"><a class="boton secundario" href="app.html">Ver el manual de la app</a></div>
+  </div>
+</section>
+
+<section class="seccion" id="ficha" data-capitulo="Ficha técnica">
+  <div class="wrap">
+    <div class="seccion-cab">
+      <span class="kicker">Ficha técnica</span>
+      <h2>Información técnica y manuales</h2>
+    </div>
+    <div class="pestanas">
+      <div class="pestanas-botones" role="tablist">
+        <button type="button" role="tab" aria-selected="true" aria-controls="p-tecnica" id="t-tecnica">Información técnica</button>
+        <button type="button" role="tab" aria-selected="false" aria-controls="p-manuales" id="t-manuales">Manuales y descargas</button>
+      </div>
+
+      <div class="pestana" role="tabpanel" id="p-tecnica" aria-labelledby="t-tecnica">
+        <div class="tecnica-grupos">
+          <details class="desplegable"><summary>Temperatura y aire</summary><dl class="tabla-tecnica">
+            <div><dt>Resistencia</dt><dd>200 W a 220 V, en la base de la cámara</dd></div>
+            <div><dt>Seguridad</dt><dd>fusible térmico que corta a 175 °C</dd></div>
+            <div><dt>Sensor</dt><dd>BME280: temperatura, humedad y presión</dd></div>
+            <div><dt>De fábrica</dt><dd>37,8 °C, ajustable desde la app</dd></div>
+            <div><dt>Aire</dt><dd>turbina de 6" y deflector de aluminio</dd></div>
+          </dl></details>
+          <details class="desplegable"><summary>Humedad</summary><dl class="tabla-tecnica">
+            <div><dt>Bomba</dt><dd>bomba y electroválvula de 12 V, en caja estanca</dd></div>
+            <div><dt>Aspersor</dt><dd>boquilla de niebla de 6 mm contra una chapa de impacto</dd></div>
+            <div><dt>Agua</dt><dd>carga automática desde la red</dd></div>
+          </dl></details>
+          <details class="desplegable"><summary>Rotación</summary><dl class="tabla-tecnica">
+            <div><dt>Motor</dt><dd>motorreductor de 12 V y 18 rpm</dd></div>
+            <div><dt>Mecanismo</dt><dd>tornillo (husillo) de 8 mm y carro</dd></div>
+            <div><dt>Recorrido</dt><dd>de unos −24° a +31°</dd></div>
+            <div><dt>Sensores</dt><dd>2 reed de posición y 2 finales de carrera</dd></div>
+          </dl></details>
+          <details class="desplegable"><summary>Electrónica y control</summary><dl class="tabla-tecnica">
+            <div><dt>Placa</dt><dd>Olivia Control V2, con ESP32 y WiFi</dd></div>
+            <div><dt>Protecciones</dt><dd>disyuntor diferencial y llaves térmicas</dd></div>
+            <div><dt>Alimentación</dt><dd>220 V, con fuente de 12 V</dd></div>
+            <div><dt>Software</dt><dd>firmware libre en Lua, app LibrePollo y Grafana</dd></div>
+          </dl></details>
+        </div>
+        <p class="ver-mas"><a href="especificaciones.html">Ver las especificaciones completas</a> · <a href="tecnologia.html">La tecnología en detalle</a></p>
+      </div>
+
+      <div class="pestana" role="tabpanel" id="p-manuales" aria-labelledby="t-manuales" hidden>
+        <div class="tarjetas">
+          <a class="tarjeta" href="manual.html"><span class="rotulo-t">Uso y mantenimiento</span><h3>Manual básico</h3><p>Instalación, primer encendido, limpieza, controles periódicos y apagado.</p><span class="ir">Leer el manual</span></a>
+          <a class="tarjeta" href="app.html"><span class="rotulo-t">App</span><h3>Manual de LibrePollo</h3><p>Pantallas, configuración WiFi, bandejas, rotación y notificaciones.</p><span class="ir">Leer el manual</span></a>
+          <a class="tarjeta" href="problemas.html"><span class="rotulo-t">Diagnóstico</span><h3>Solución de problemas</h3><p>Qué revisar si baja la humedad, no sube la temperatura o no gira.</p><span class="ir">Ver la guía</span></a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="seccion" data-capitulo="Fabricación">
-  <div class="wrap dos-col">
-    <div class="texto-corto">
-      <span class="kicker">Fabricación y componentes</span>
-      <h2 style="font-size:clamp(30px,3.8vw,50px);margin:16px 0 14px">Simple de entender, simple de reparar</h2>
-      <p>Un circuito de convección forzada reparte el calor de forma pareja. Un sensor BME280 mide temperatura, humedad y presión, un aspersor de niebla mantiene la humedad y un motor con un tornillo gira las bandejas. Todo lo coordina la placa Olivia Control, con un microcontrolador ESP32, y un fusible térmico corta la resistencia si algo falla.</p>
-      <div class="acciones"><a class="boton secundario" href="tecnologia.html">Ver la tecnología en detalle</a></div>
+<section class="seccion tono" data-capitulo="Para quién">
+  <div class="wrap">
+    <div class="seccion-cab">
+      <span class="kicker">Para quién es</span>
+      <h2>Pensada para quienes producen</h2>
+      <p>Las incubadoras comerciales suelen ser inaccesibles por su costo o están diseñadas para hobbistas. LibreIncu está pensada para la escala de la producción familiar.</p>
     </div>
-    <figure class="medio modelo-3d"><iframe src="../assets/rotacion-bandejas.html" loading="lazy" title="Modelo 3D interactivo del volteo de bandejas de la LibreIncu 150"></iframe><figcaption>Modelo 3D del volteo de bandejas: arrastrá para girarlo. Modelo de Pablo Monte.</figcaption></figure>
+    <div class="tarjetas">
+      <div class="tarjeta icono" style="--ic: var(--i-gallina)"><h3>Familias productoras</h3><p>Para producir sus propios pollitos con la genética que elijan, sin depender de comprar el pollito bebé.</p></div>
+      <div class="tarjeta icono" style="--ic: var(--i-nace)"><h3>Cooperativas</h3><p>Para organizar en el territorio la reproducción de sus propias aves.</p></div>
+      <div class="tarjeta icono" style="--ic: var(--i-pollito)"><h3>Organizaciones</h3><p>Para acompañar proyectos de producción avícola familiar y agroecológica.</p></div>
+    </div>
+    <ul class="ventajas-fila">
+      <li><b>Libre:</b> planos, electrónica, firmware y app publicados, para entenderla, repararla y adaptarla.</li>
+      <li><b>Repuestos:</b> piezas del mercado, fáciles de reemplazar.</li>
+      <li><b>Territorio:</b> se fabrica en la ruralidad, cerca de quienes la usan.</li>
+    </ul>
   </div>
 </section>
 
-<section class="seccion tono" data-capitulo="Soporte">
+<section class="seccion" data-capitulo="Soporte">
   <div class="wrap">
     <div class="seccion-cab">
       <span class="kicker">Después de la compra</span>
       <h2>Garantía, mantenimiento y asistencia</h2>
     </div>
     <div class="tarjetas">
-      <a class="tarjeta" href="manual.html"><span class="rotulo-t">Mantenimiento</span><h3>Manual básico</h3><p>Instalación, primer encendido, limpieza, controles periódicos y apagado.</p><span class="ir">Leer el manual</span></a>
-      <a class="tarjeta" href="problemas.html"><span class="rotulo-t">Diagnóstico</span><h3>Solución de problemas</h3><p>Qué revisar si baja la humedad, no sube la temperatura o no gira.</p><span class="ir">Ver la guía</span></a>
       <a class="tarjeta" href="contacto.html?motivo=soporte"><span class="rotulo-t">Asistencia</span><h3>Soporte técnico</h3><p>Escribinos por WhatsApp si necesitás ayuda con tu incubadora.</p><span class="ir">Pedir soporte</span></a>
+      <a class="tarjeta" href="manual.html"><span class="rotulo-t">Mantenimiento</span><h3>Manual básico</h3><p>Limpieza, controles periódicos y apagado, para que dure muchos años.</p><span class="ir">Leer el manual</span></a>
+      <a class="tarjeta" href="problemas.html"><span class="rotulo-t">Diagnóstico</span><h3>Solución de problemas</h3><p>Qué revisar si baja la humedad, no sube la temperatura o no gira.</p><span class="ir">Ver la guía</span></a>
     </div>
     <div class="pendiente" style="margin-top:16px"><p>Garantía: quién la da, qué cubre y por cuánto tiempo. Soporte técnico: quién lo brinda, cómo y en qué plazos.</p></div>
   </div>
 </section>
 
-<section class="seccion" data-capitulo="Preguntas">
+<section class="seccion tono" data-capitulo="Preguntas">
   <div class="wrap">
     <div class="seccion-cab">
       <span class="kicker">Preguntas frecuentes</span>
@@ -166,35 +291,28 @@
   </div>
 </section>
 
+<section class="seccion" id="app" data-capitulo="La app">
+  <div class="wrap">
+    <div class="dos-col">
+      <figure class="medio" style="max-width:340px;justify-self:center"><video src="../assets/app-librepollo.mp4" poster="../assets/app-librepollo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Demostración de la app LibrePollo"></video></figure>
+      <div class="texto-corto">
+        <h3 style="font-size:28px">La app LibrePollo</h3>
+        <p>Muestra la temperatura y la humedad dentro de la incubadora, permite modificar esos valores y avisa al celular si algo se sale de lo esperado.</p>
+        <div class="acciones"><a class="boton secundario" href="app.html">Ver el manual de la app</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="seccion" data-capitulo="Comprá la tuya">
   <div class="wrap">
-    <span id="presupuesto"></span>
-    <div class="presupuesto pedila" id="pedila">
+    <div class="cierre-compra">
       <div>
         <span class="kicker">Comprá la tuya</span>
-        <h2>LibreIncu 150</h2>
-        <ul class="resumen">
-          <li><b>166 huevos</b> en 3 bandejas (una de 50 y dos de 58), más bandeja nacedora</li>
-          <li><b>Temperatura, humedad y rotación</b> automáticas</li>
-          <li><b>Monitoreo y alarmas</b> desde el celular, con la app LibrePollo</li>
-          <li><b>100 × 50 × 50 cm</b> · alto, ancho y profundidad</li>
-          <li><b>Hardware y software libres</b>, con repuestos del mercado</li>
-          <li><b>86 % de eclosión</b> en las pruebas realizadas</li>
-        </ul>
-        <a class="ver-ficha" href="#ficha">Ver la ficha técnica completa</a>
+        <h2>LibreIncu 150 · 166 huevos, todo automático</h2>
+        <p>Escribinos y te contamos precio, plazos y cómo llega a tu territorio.</p>
       </div>
-      <div>
-        <div class="precio">
-          <span>Precio de venta</span>
-          <strong class="pendiente">Precio de venta (completar)</strong>
-        </div>
-        <div class="pendiente"><p>Quién fabrica, vende y factura · Plazo de entrega y zona de envío.</p></div>
-        <div class="acciones" style="flex-direction:column;align-items:stretch">
-          <a class="boton wa" href="https://wa.me/5493517350189?text=Hola%2C%20quiero%20pedir%20una%20incubadora%20LibreIncu%20150" target="_blank" rel="noopener">Comprala por WhatsApp</a>
-          <a class="boton secundario" href="mailto:libreincu@gmail.com?subject=Quiero%20una%20LibreIncu%20150">libreincu@gmail.com</a>
-        </div>
-        <p class="nota-wa">El 3517350189 es solo para WhatsApp.</p>
-      </div>
+      <a class="boton wa" href="https://wa.me/5493517350189?text=Hola%2C%20quiero%20pedir%20una%20incubadora%20LibreIncu%20150" target="_blank" rel="noopener">Comprala por WhatsApp</a>
     </div>
   </div>
 </section>
