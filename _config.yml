@@ -1,0 +1,8 @@
+# GitHub Pages: no publicar archivos de trabajo del repo
+exclude:
+  - CLAUDE.md
+  - README.md
+  - docs
+  - contenido-original
+  - herramientas
+  - fotos-rediseno

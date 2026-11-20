@@ -6,6 +6,8 @@ La propuesta vigente está en `docs/PROPUESTA.md` y el plan por fases en `docs/R
 
 - Nunca hacer commit ni push sin el OK explícito de Fabricio después de revisar en local (http://127.0.0.1:8766/v2/, servidor: `python3 herramientas/servidor.py 8766 prototipo`).
 - Nada se sube al repo de AlterMundi.
+- Dominio: libreincu.cto.ar (CNAME en el Cloudflare de cto.ar hacia fabriciopetiso.github.io, en "DNS only"). Mientras no se lance, la web está oculta: `OCULTA` (meta robots noindex) en `generar.py` y `robots.txt` con `Disallow: /`. Al lanzarla, sacar las dos cosas.
+- `_config.yml` excluye de GitHub Pages los archivos de trabajo (CLAUDE.md, docs, contenido-original, herramientas, etc.).
 - Fuente técnica vigente: la LibreIncu 150 v3 de Pablo Monte (https://pablomonte.github.io/LibreIncu-150/). Todo lo técnico se actualiza a esa versión y se toma como válida; si algo genera dudas, se consulta con Fabricio.
 - Decisiones ya tomadas sobre la v3: capacidad 166 huevos en las 3 bandejas (1 de 50 y 2 de 58), más la nacedora; temperatura de fábrica 37,8 °C; la humedad se carga sola desde la red de agua; el firmware sigue siendo NodeMCU/Lua; puente H BTS7960; licencias CERN OHL / LGPL 2.1 / CC BY 4.0; se menciona como "v3".
 - `especificaciones.html`, `app.html` y `problemas.html` pasaron a ser páginas a mano (`A_MANO`) para poder actualizarlas a la v3; `verificar_textos.py` ya no las compara con el original.

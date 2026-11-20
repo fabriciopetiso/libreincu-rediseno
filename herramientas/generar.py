@@ -308,6 +308,7 @@ def plantilla(archivo, nombre, grupo, titulo, cuerpo, capitulos, foto):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{OCULTA}
 <title>{html.escape(nombre)} — LibreIncu</title>
 <link rel="icon" href="../assets/favicon-yema.png">
 <link rel="stylesheet" href="../assets/fuentes.css">
@@ -395,6 +396,9 @@ def otras_landings(archivo):
 
 
 # Fuera de localhost los bloques .pendiente se ocultan (ver .publicado en v2.css)
+# Mientras la web no sea pública: que los buscadores no la indexen (sacar al lanzar)
+OCULTA = '<meta name="robots" content="noindex, nofollow">'
+
 PUBLICADO = ('<script data-publicado>if (!/^(localhost|127\\.0\\.0\\.1)$/.test(location.hostname)) '
              'document.documentElement.classList.add("publicado")</script>')
 
@@ -431,6 +435,9 @@ def sincronizar_a_mano():
         s = ruta.read_text(encoding="utf-8")
         s = reemplazar(s, '<header class="top">', "</header>", marcar_cabecera(archivo), archivo)
         s = reemplazar(s, '<footer class="pie">', "</footer>", PIE, archivo)
+        if 'name="robots"' not in s:
+            s = s.replace('<meta name="viewport" content="width=device-width, initial-scale=1">',
+                          '<meta name="viewport" content="width=device-width, initial-scale=1">\n' + OCULTA, 1)
         if "<script data-publicado>" in s:
             s = reemplazar(s, "<script data-publicado>", "</script>", PUBLICADO, archivo)
         else:
